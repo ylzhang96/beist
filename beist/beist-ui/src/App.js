@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Index from './component'
+import Index from './pages/index'
 
 class App extends Component {
     render() {
