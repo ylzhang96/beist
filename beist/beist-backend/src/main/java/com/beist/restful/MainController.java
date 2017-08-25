@@ -11,12 +11,13 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/")
+
 public class MainController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping("")
+    @RequestMapping("/")
     public String home(){
         return "index";
     }
@@ -24,7 +25,7 @@ public class MainController {
     @RequestMapping("/json")
     @ResponseBody
     public List<User> json(){
-        return userService.getAllUsernames();
+        return userService.getUserList();
     }
 
 }
