@@ -1,16 +1,18 @@
-import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';    // import bootstrap framework
+import React, {Component} from 'react';
+import '../styles/css/style.css';
+import IndexBody from "../components/indexBody";
+import IndexFooter from "../components/indexFooter";
 
 class Index extends Component {
 
     render() {
         return (
-            <Button href="/login">登录</Button>
+            <div>
+                <IndexBody/>
+                <IndexFooter/>
+            </div>
         );
     }
-
-
-
 }
 
 export default Index;
