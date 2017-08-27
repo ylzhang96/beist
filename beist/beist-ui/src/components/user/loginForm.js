@@ -25,7 +25,7 @@ class LoginForm extends Component {
 
                 <FormGroup>
                     <Col smOffset={2} sm={10}>
-                        <Checkbox>Remember me</Checkbox>
+                        <Checkbox>记住我</Checkbox>
                     </Col>
                 </FormGroup>
 

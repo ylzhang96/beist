@@ -3,20 +3,14 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';           // install bootstrap framework
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import './index.css';
-import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import Index from "./pages/index";
-import Login from "./pages/user/login";
-import {Route, Router} from "react-router";
+import {Route, BrowserRouter as Router} from 'react-router-dom'
+import App from "./App";
 
-ReactDOM.render((
-        <Router >//开始创建路由表
-            <Route path="/" component={App}>//声明每一个路由
-                {/*<Route path="/about" component={About}/>*/}
-                <Route path="login" component={Login}>//每个路由
-                    {/*<Route path=":id" component={User}/>//对应一个Component*/}
-                </Route>
-            </Route>
+ReactDOM.render(
+    (
+        <Router>
+            <Route path="/" component={App}></Route>
         </Router>
     ),
     document.getElementById('root'));
