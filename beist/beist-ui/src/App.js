@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {Link, Route} from "react-router-dom";
-import Login from "./pages/user/login";
 import Index from "./pages/index";
-import Register from "./pages/user/register";
+import MyPage from "./pages/myPage";
 
 class App extends Component {
 
@@ -12,8 +11,8 @@ class App extends Component {
                 {this.props.children}
                 <Link to="/"></Link>
                 <Route exact path="/" component={Index}/>
-                <Route path="/login" component={Login}/>
-                <Route path="/register" component={Register}/>
+                <Route path="/myPage" component={MyPage}/>
+                {/*<Route path="/register" component={Register}/>*/}
             </div>
         );
     }
