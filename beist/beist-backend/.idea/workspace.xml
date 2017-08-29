@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63d3f6ee-3dbb-4e1e-a40d-1a342776c852" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/beist/restful/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/com/beist/restful/MainController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../beist-ui/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/package.json" afterPath="$PROJECT_DIR$/../beist-ui/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/App.js" afterPath="$PROJECT_DIR$/../beist-ui/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/pages/index.js" afterPath="$PROJECT_DIR$/../beist-ui/src/pages/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/pages/user/login.js" afterPath="$PROJECT_DIR$/../beist-ui/src/pages/user/login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/components/head.js" afterPath="$PROJECT_DIR$/../beist-ui/src/components/head.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/components/indexBody.js" afterPath="$PROJECT_DIR$/../beist-ui/src/components/indexBody.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/components/user/loginForm.js" afterPath="$PROJECT_DIR$/../beist-ui/src/components/user/loginForm.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/pages/myPage.js" afterPath="$PROJECT_DIR$/../beist-ui/src/pages/myPage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/styles/css/style.css" afterPath="$PROJECT_DIR$/../beist-ui/src/styles/css/style.css" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />

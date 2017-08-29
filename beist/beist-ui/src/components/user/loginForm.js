@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import {Button, Checkbox, Col, ControlLabel, Form, FormControl, FormGroup} from "react-bootstrap";
+import {Col, ControlLabel, Form, FormControl, FormGroup} from "react-bootstrap";
 
 class LoginForm extends Component {
+
     render() {
         return (
             <Form horizontal>
@@ -10,7 +11,7 @@ class LoginForm extends Component {
                         手机号
                     </Col>
                     <Col sm={8}>
-                        <FormControl type="text" placeholder="手机号" />
+                        <FormControl type="text" placeholder="手机号" onChange={this.props.onChangeUserTele}/>
                     </Col>
                 </FormGroup>
 
@@ -19,7 +20,7 @@ class LoginForm extends Component {
                         密码
                     </Col>
                     <Col sm={8}>
-                        <FormControl type="password" placeholder="密码" />
+                        <FormControl type="password" placeholder="密码" onChange={this.props.onChangeUserPass}/>
                     </Col>
                 </FormGroup>
 

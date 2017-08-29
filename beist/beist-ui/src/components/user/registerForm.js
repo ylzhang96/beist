@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Checkbox, Col, ControlLabel, Form, FormControl, FormGroup} from "react-bootstrap";
+import {Col, ControlLabel, Form, FormControl, FormGroup} from "react-bootstrap";
 
 class RegisterForm extends Component {
     render() {
@@ -10,7 +10,7 @@ class RegisterForm extends Component {
                         手机号
                     </Col>
                     <Col sm={8}>
-                        <FormControl type="text" placeholder="手机号"/>
+                        <FormControl type="text" placeholder="手机号" onChange={this.props.onChangeUserTele}/>
                     </Col>
                 </FormGroup>
 
@@ -19,7 +19,7 @@ class RegisterForm extends Component {
                         密码
                     </Col>
                     <Col sm={8}>
-                        <FormControl type="password" placeholder="密码"/>
+                        <FormControl type="password" placeholder="密码" onChange={this.props.onChangeUserPass}/>
                     </Col>
                 </FormGroup>
 
@@ -28,7 +28,7 @@ class RegisterForm extends Component {
                         获取验证码
                     </Col>
                     <Col sm={8}>
-                        <FormControl type="text" placeholder="验证码"/>
+                        <FormControl type="text" placeholder="验证码" onChange={this.props.onChangeUserCode}/>
                     </Col>
 
                 </FormGroup>

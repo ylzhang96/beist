@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import {
+    Button,
+    FormControl,
+    FormGroup,
     MenuItem, Nav, Navbar, NavDropdown, NavItem
 } from "react-bootstrap";
 
@@ -26,6 +29,13 @@ class Head extends Component {
                             <MenuItem eventKey={3.3}>注销</MenuItem>
                         </NavDropdown>
                     </Nav>
+                    <Navbar.Form pullRight>
+                        <FormGroup>
+                            <FormControl type="text" placeholder="查单词" />
+                        </FormGroup>
+                        {'  '}
+                        <Button type="submit">搜索</Button>
+                    </Navbar.Form>
                 </Navbar.Collapse>
             </Navbar>
         );

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {Button, Checkbox, Col, ControlLabel, Form, FormControl, FormGroup} from "react-bootstrap";
 import Head from "../components/head";
-import About from "../components/about";
+import MyPageBody from "../components/myPageBody";
+import MyPageFooter from "../components/myPageFooter";
 
 class MyPage extends Component {
     render() {
@@ -9,7 +9,10 @@ class MyPage extends Component {
             <div>
                 <Head/>
                 <div className="padTop3Class">
-                    <About/>
+                    <MyPageBody/>
+                </div>
+                <div className="padTop5Class">
+                    <MyPageFooter/>
                 </div>
             </div>
         );
