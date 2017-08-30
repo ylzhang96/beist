@@ -2,49 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63d3f6ee-3dbb-4e1e-a40d-1a342776c852" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/beist-backend/WEB-INF/classes/com/beist/dao/impl/UserDaoImpl.class" afterPath="$PROJECT_DIR$/target/beist-backend/WEB-INF/classes/com/beist/dao/impl/UserDaoImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/beist-backend/WEB-INF/classes/com/beist/restful/MainController.class" afterPath="$PROJECT_DIR$/target/beist-backend/WEB-INF/classes/com/beist/restful/MainController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/beist/dao/impl/UserDaoImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/beist/dao/impl/UserDaoImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/beist/restful/MainController.class" afterPath="$PROJECT_DIR$/target/classes/com/beist/restful/MainController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/beist/dao/impl/UserDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/beist/dao/impl/UserDaoImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../beist-ui/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/CHANGELOG.md" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/LICENSE" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/README.md" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/auto.js" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/auto.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/dist/es6-promise.auto.js" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/dist/es6-promise.auto.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/dist/es6-promise.js" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/dist/es6-promise.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/es6-promise.d.ts" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/es6-promise.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise.auto.js" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise.auto.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise.js" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/-internal.js" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/-internal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/asap.js" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/asap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/enumerator.js" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/enumerator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/polyfill.js" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/polyfill.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/promise.js" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/promise.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/promise/all.js" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/promise/all.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/promise/race.js" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/promise/race.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/promise/reject.js" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/promise/reject.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/promise/resolve.js" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/promise/resolve.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/then.js" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/then.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/utils.js" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/lib/es6-promise/utils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/package.json" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/es6-promise/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/.editorconfig" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/.editorconfig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/.jshintrc" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/.jshintrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/.npmignore" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/.npmignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/.travis.yml" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/.travis.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/LICENSE" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/README.md" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/bower.json" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/fetch-bower.js" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/fetch-bower.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/fetch-npm-browserify.js" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/fetch-npm-browserify.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/fetch-npm-node.js" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/fetch-npm-node.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/package.json" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/test/api.test.js" afterPath="$PROJECT_DIR$/../beist-ui/node_modules/isomorphic-fetch/test/api.test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/package.json" afterPath="$PROJECT_DIR$/../beist-ui/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/components/indexBody.js" afterPath="$PROJECT_DIR$/../beist-ui/src/components/indexBody.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/components/user/loginForm.js" afterPath="$PROJECT_DIR$/../beist-ui/src/components/user/loginForm.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/components/article/articleJumbotron.js" afterPath="$PROJECT_DIR$/../beist-ui/src/components/article/articleJumbotron.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/components/user/userJumbotron.js" afterPath="$PROJECT_DIR$/../beist-ui/src/components/user/userJumbotron.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/components/word/wordJumbotron.js" afterPath="$PROJECT_DIR$/../beist-ui/src/components/word/wordJumbotron.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/pages/article.js" afterPath="$PROJECT_DIR$/../beist-ui/src/pages/article.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/pages/settings.js" afterPath="$PROJECT_DIR$/../beist-ui/src/pages/settings.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/pages/word.js" afterPath="$PROJECT_DIR$/../beist-ui/src/pages/word.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/styles/css/style.css" afterPath="$PROJECT_DIR$/../beist-ui/src/styles/css/style.css" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -72,15 +37,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loginForm.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="loginForm.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../beist-ui/src/components/user/loginForm.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="127">
               <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-              <folding>
-                <marker date="1504093381911" expanded="true" signature="169:1778" ph="{...}" />
-                <marker date="1504093381911" expanded="true" signature="1739:1776" ph="{...}" />
-              </folding>
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wordBody.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../beist-ui/src/components/word/wordBody.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="91">
+              <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -162,6 +134,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/beist/restful/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beist/dao/impl/UserDaoImpl.java" />
         <option value="$PROJECT_DIR$/../beist-ui/src/components/user/loginForm.js" />
+        <option value="$PROJECT_DIR$/../beist-ui/src/components/word/wordBody.js" />
       </list>
     </option>
   </component>
@@ -1164,7 +1137,7 @@
     <option name="totallyTimeSpent" value="20281000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -1408,10 +1381,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127">
           <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <marker date="1504093381911" expanded="true" signature="169:1778" ph="{...}" />
-            <marker date="1504093381911" expanded="true" signature="1739:1776" ph="{...}" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../beist-ui/src/components/word/wordBody.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

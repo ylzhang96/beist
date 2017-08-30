@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {
-    Button, Col,
+    Button,
     FormControl,
-    FormGroup, Glyphicon, Grid, Image, InputGroup,
-    MenuItem, Nav, Navbar, NavDropdown, NavItem, Row, Thumbnail
+    FormGroup, Glyphicon, Image, InputGroup,
+    MenuItem, Nav, Navbar, NavDropdown, NavItem
 } from "react-bootstrap";
 import Icon from '../images/icon.jpg';
 

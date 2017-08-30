@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {
-    Tab, Checkbox, Col, ControlLabel, Form, FormControl, FormGroup, MenuItem, Nav, Navbar, NavDropdown,
+    Tab, Col, Nav,
     NavItem, Row
 } from "react-bootstrap";
 

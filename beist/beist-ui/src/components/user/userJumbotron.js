@@ -10,7 +10,7 @@ class UserJumbotron extends Component {
                         <Row className="padTop2Class padBot2Class text-center">
                             <h2>用户信息</h2>
                         </Row>
-                        <Row className="padTop3Class">
+                        <Row className="padTop2Class">
                             <Col sm={6}>
                                 <h4>水平测试</h4>
                             </Col>

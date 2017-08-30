@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import '../styles/css/style.css';
-import {Col, Grid, Row} from 'react-bootstrap';    // import bootstrap framework
 
 class MyPageFooter extends Component {
 

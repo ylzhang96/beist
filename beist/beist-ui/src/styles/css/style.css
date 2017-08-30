@@ -2,6 +2,10 @@
     padding-left: 30%;
 }
 
+.padRig30Class {
+    padding-right: 30%;
+}
+
 .padRig40Class {
     padding-right: 40%;
 }
@@ -26,12 +30,27 @@
     padding-bottom: 2%;
 }
 
+.floatClass {
+    float: right;
+}
+
 .indexBody {
     padding-top: 18%;
     padding-bottom: 23.5%;
     padding-left: 10%;
     padding-right: 10%;
     text-align: center;
+}
+
+.wordBody {
+    padding-left: 15%;
+    padding-right: 15%;
+    text-align: center;
+}
+
+.articleBody {
+    padding-left: 15%;
+    padding-right: 15%
 }
 
 .indexButton {

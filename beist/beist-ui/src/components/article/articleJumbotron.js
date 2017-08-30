@@ -10,7 +10,7 @@ class ArticleJumbotron extends Component {
                         <Row className="padTop2Class padBot2Class text-center">
                             <h2>文章</h2>
                         </Row>
-                        <Row className="padTop3Class">
+                        <Row className="padTop2Class">
                             <Col sm={6}>
                                 <h4>今日已读</h4>
                             </Col>
