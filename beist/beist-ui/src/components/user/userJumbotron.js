@@ -1,17 +1,51 @@
 import React, {Component} from 'react';
-import {Button, Jumbotron} from "react-bootstrap";
+import {Button, Col, Grid, Jumbotron, Row} from "react-bootstrap";
 
 class UserJumbotron extends Component {
     render() {
         return (
             <div>
                 <Jumbotron>
-                    <div className="text-center padBot2Class"><h2>读文章</h2></div>
-
-                    <h5>今日已读：20个</h5>
-                    <h5>今日需读：40个</h5>
-                    <h5>总共已读：1800个</h5>
-                    <div className="padTop5Class"><Button bsStyle="info" block>读文章</Button></div>
+                    <Grid className="text-center">
+                        <Row className="padTop2Class padBot2Class text-center">
+                            <h2>用户信息</h2>
+                        </Row>
+                        <Row className="padTop3Class">
+                            <Col sm={6}>
+                                <h4>水平测试</h4>
+                            </Col>
+                            <Col sm={6}>
+                                <h4>六级</h4>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col sm={6}>
+                                <h4>目标难度</h4>
+                            </Col>
+                            <Col sm={6}>
+                                <h4>托福</h4>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col sm={6}>
+                                <h4>已背天数</h4>
+                            </Col>
+                            <Col sm={6}>
+                                <h4>25 天</h4>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col sm={6}>
+                                <h4>总共需背</h4>
+                            </Col>
+                            <Col sm={6}>
+                                <h4>2000 个</h4>
+                            </Col>
+                        </Row>
+                        <Row className="padBot2Class padTop3Class">
+                            <div className="padTop10Class"><Button bsStyle="info" href="/settings" block>去设置</Button></div>
+                        </Row>
+                    </Grid>
                 </Jumbotron>
             </div>
         );

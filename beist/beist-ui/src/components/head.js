@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {
-    Button,
+    Button, Col,
     FormControl,
-    FormGroup,
-    MenuItem, Nav, Navbar, NavDropdown, NavItem
+    FormGroup, Glyphicon, Grid, Image, InputGroup,
+    MenuItem, Nav, Navbar, NavDropdown, NavItem, Row, Thumbnail
 } from "react-bootstrap";
+import Icon from '../images/icon.jpg';
 
 class Head extends Component {
     render() {
@@ -12,29 +13,35 @@ class Head extends Component {
             <Navbar>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <a href="#">Beist</a>
+                        <a href="/myPage">Beist</a>
                     </Navbar.Brand>
                     <Navbar.Toggle/>
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav>
-                        <NavItem eventKey={1} href="#">背单词</NavItem>
-                        <NavItem eventKey={2} href="#">读文章</NavItem>
+                        <NavItem eventKey={1} href="/word">背单词</NavItem>
+                        <NavItem eventKey={2} href="/article">读文章</NavItem>
                     </Nav>
                     <Nav pullRight>
                         <NavDropdown eventKey={3} title="Caroline" id="basic-nav-dropdown">
-                            <MenuItem eventKey={3.1}>设置</MenuItem>
-                            <MenuItem eventKey={3.2}>帮助</MenuItem>
+                            <MenuItem eventKey={3.1} href="/settings">设置</MenuItem>
+                            <MenuItem eventKey={3.2} href="/about">帮助</MenuItem>
                             <MenuItem divider/>
-                            <MenuItem eventKey={3.3}>注销</MenuItem>
+                            <MenuItem eventKey={3.3} href="/">注销</MenuItem>
                         </NavDropdown>
+                    </Nav>
+                    <Nav pullRight>
+                        <Image src={Icon} circle/>
                     </Nav>
                     <Navbar.Form pullRight>
                         <FormGroup>
-                            <FormControl type="text" placeholder="查单词" />
+                            <InputGroup>
+                                <FormControl type="text" placeholder="查单词"/>
+                                <InputGroup.Button>
+                                    <Button><Glyphicon glyph="search"/></Button>
+                                </InputGroup.Button>
+                            </InputGroup>
                         </FormGroup>
-                        {'  '}
-                        <Button type="submit">搜索</Button>
                     </Navbar.Form>
                 </Navbar.Collapse>
             </Navbar>

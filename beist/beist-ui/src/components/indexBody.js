@@ -4,6 +4,8 @@ import {Button, ButtonToolbar, Col, Grid, Image, Modal, Row} from 'react-bootstr
 import BeistLogo from '../images/sk.JPG';
 import LoginForm from "./user/loginForm";
 import RegisterForm from "./user/registerForm";
+import fetch from 'isomorphic-fetch';
+import polyfill from 'es6-promise';
 
 class IndexBody extends Component {
     constructor(props) {
@@ -13,9 +15,9 @@ class IndexBody extends Component {
             showRegisterModal: false,
             isRegister: false,
             userInfo: {
-                userTele: null,
-                userPass: null,
-                userCode: null,
+                userTele: '',
+                userPass: '',
+                userCode: '',
             }
         }
     }
@@ -43,11 +45,12 @@ class IndexBody extends Component {
     }
 
     onChangeUserCode(event) {
+        let code = event.target.value;
         this.setState({
             userInfo: {
                 userTele: this.state.userInfo.userTele,
                 userPass: this.state.userInfo.userPass,
-                userCode: event.target.value
+                userCode: code
             }
         })
     }
@@ -58,9 +61,9 @@ class IndexBody extends Component {
             showRegisterModal: false,
             isRegister: false,
             userInfo: {
-                userTele: null,
-                usetPass: null,
-                userCode: null
+                userTele: '',
+                userPass: '',
+                userCode: ''
             }
         })
     }
@@ -71,9 +74,9 @@ class IndexBody extends Component {
             showLoginModal: false,
             isRegister: true,
             userInfo: {
-                userTele: null,
-                usetPass: null,
-                userCode: null
+                userTele: '',
+                userPass: '',
+                userCode: ''
             }
         })
     }
@@ -83,9 +86,9 @@ class IndexBody extends Component {
             showLoginModal: false,
             isRegister: false,
             userInfo: {
-                userTele: null,
-                usetPass: null,
-                userCode: null
+                userTele: '',
+                userPass: '',
+                userCode: ''
             }
         })
 
@@ -96,9 +99,9 @@ class IndexBody extends Component {
             showRegisterModal: false,
             isRegister: false,
             userInfo: {
-                userTele: null,
-                usetPass: null,
-                userCode: null
+                userTele: '',
+                userPass: '',
+                userCode: ''
             }
         })
     }
@@ -110,7 +113,19 @@ class IndexBody extends Component {
         console.log(this.state.isRegister);
         console.log(this.state.userInfo.userTele);
         console.log(this.state.userInfo.userPass);
+        // if (this.state.warningInfo.isWarning === false) {
+        //     window.location.href = '/myPage';
+        // }
+        // Ajax - Fetch API
         // 调用后端接口，验证登录是否正确，正确转myPage
+        // fetch(url).then(function (response) {
+        //     return response.json();
+        // }).then(function (jsonData) {
+        //     console.log(jsonData);
+        // }).catch(function () {
+        //     console.log('出错了');
+        // });
+
         window.location.href = '/myPage';
 
     }
@@ -164,7 +179,8 @@ class IndexBody extends Component {
                     </Modal.Header>
                     <Modal.Body>
                         <LoginForm onChangeUserTele={this.onChangeUserTele.bind(this)}
-                                   onChangeUserPass={this.onChangeUserPass.bind(this)}/>
+                                   onChangeUserPass={this.onChangeUserPass.bind(this)}
+                                   userTele={this.state.userInfo.userTele} userPass={this.state.userInfo.userPass}/>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button onClick={this.openRegisterModal.bind(this)}>还未注册?</Button>
@@ -179,7 +195,9 @@ class IndexBody extends Component {
                     <Modal.Body>
                         <RegisterForm onChangeUserTele={this.onChangeUserTele.bind(this)}
                                       onChangeUserPass={this.onChangeUserPass.bind(this)}
-                                      onChangeUserCode={this.onChangeUserCode.bind(this)}/>
+                                      onChangeUserCode={this.onChangeUserCode.bind(this)}
+                                      userTele={this.state.userInfo.userTele} userPass={this.state.userInfo.userPass}
+                                      userCode={this.state.userInfo.userCode}/>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button onClick={this.openLoginModal.bind(this)}>已有账号?</Button>

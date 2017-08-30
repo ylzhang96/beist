@@ -4,7 +4,7 @@ import {
     NavItem, Row
 } from "react-bootstrap";
 
-class About extends Component {
+class AboutBody extends Component {
     render() {
         return (
             <Tab.Container id="left-tabs-example" defaultActiveKey="first">
@@ -87,4 +87,4 @@ class About extends Component {
     }
 }
 
-export default About;
+export default AboutBody;

@@ -8,10 +8,10 @@ class MyPage extends Component {
         return (
             <div>
                 <Head/>
-                <div className="padTop3Class">
+                <div className="padTop2Class">
                     <MyPageBody/>
                 </div>
-                <div className="padTop5Class">
+                <div className="padTop2Class">
                     <MyPageFooter/>
                 </div>
             </div>
