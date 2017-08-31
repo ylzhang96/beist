@@ -113,20 +113,25 @@ class IndexBody extends Component {
         console.log(this.state.isRegister);
         console.log(this.state.userInfo.userTele);
         console.log(this.state.userInfo.userPass);
-        // if (this.state.warningInfo.isWarning === false) {
-        //     window.location.href = '/myPage';
-        // }
         // Ajax - Fetch API
         // 调用后端接口，验证登录是否正确，正确转myPage
-        // fetch(url).then(function (response) {
-        //     return response.json();
-        // }).then(function (jsonData) {
-        //     console.log(jsonData);
-        // }).catch(function () {
-        //     console.log('出错了');
-        // });
+        let data = 'username=' + 'caroline' + '&password=' + 'zhang';
+        fetch('http:///localhost:8000/api/user/login', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: data
+        }).then(function (response) {
+            return response.json();
+        }).then(function (jsonData) {
+            console.log(jsonData);
+        }).catch(function () {
+            console.log('出错了');
+        });
 
-        window.location.href = '/myPage';
+
+        // window.location.href = '/myPage';
 
     }
 
