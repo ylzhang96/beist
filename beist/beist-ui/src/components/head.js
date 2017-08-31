@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {
     Button,
     FormControl,
-    FormGroup, Glyphicon, Image, InputGroup,
+    FormGroup, Glyphicon, Image, InputGroup, Label,
     MenuItem, Nav, Navbar, NavDropdown, NavItem
 } from "react-bootstrap";
 import Icon from '../images/icon.jpg';
@@ -23,16 +23,18 @@ class Head extends Component {
                         <NavItem eventKey={2} href="/article">读文章</NavItem>
                     </Nav>
                     <Nav pullRight>
-                        <NavDropdown eventKey={3} title="Caroline" id="basic-nav-dropdown">
-                            <MenuItem eventKey={3.1} href="/settings">设置</MenuItem>
-                            <MenuItem eventKey={3.2} href="/about">帮助</MenuItem>
+                        <NavDropdown eventKey={3} title={<Image src={Icon} circle/>} id="basic-nav-dropdown">
+                            <MenuItem eventKey={3.1}><h5>Caroline</h5></MenuItem>
                             <MenuItem divider/>
-                            <MenuItem eventKey={3.3} href="/">注销</MenuItem>
+                            <MenuItem eventKey={3.2} href="/settings">设置</MenuItem>
+                            <MenuItem eventKey={3.3} href="/about">帮助</MenuItem>
+                            <MenuItem divider/>
+                            <MenuItem eventKey={3.4} href="/">注销</MenuItem>
                         </NavDropdown>
                     </Nav>
-                    <Nav pullRight>
-                        <Image src={Icon} circle/>
-                    </Nav>
+                    {/*<Nav pullRight>*/}
+                        {/*<Image src={Icon} circle/>*/}
+                    {/*</Nav>*/}
                     <Navbar.Form pullRight>
                         <FormGroup>
                             <InputGroup>
