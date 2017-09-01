@@ -1,17 +1,19 @@
 package com.beist.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import lombok.Data;
 
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Data
 @Entity
-public class User {
+@Table(name = "beist_user")
+public class User implements Serializable {
 
     @Id
     @GeneratedValue
     @Column(name = "USER_ID")
-    private Integer userId;
+    private Long userId;
 
     @Column(name = "USER_TELE")
     private String userTele;
@@ -25,11 +27,11 @@ public class User {
     @Column(name = "USER_ICON")
     private String userIcon;
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

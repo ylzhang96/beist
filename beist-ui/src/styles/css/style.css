@@ -1,0 +1,66 @@
+.padLef30Class {
+    padding-left: 30%;
+}
+
+.padRig30Class {
+    padding-right: 30%;
+}
+
+.padRig40Class {
+    padding-right: 40%;
+}
+
+.padTop10Class {
+    padding-top: 10%;
+}
+
+.padTop5Class {
+    padding-top: 5%;
+}
+
+.padTop3Class {
+    padding-top: 3%;
+}
+
+.padTop2Class {
+    padding-top: 2%;
+}
+
+.padBot2Class {
+    padding-bottom: 2%;
+}
+
+.floatClass {
+    float: right;
+}
+
+.verMiddle {
+    vertical-align: middle;
+}
+
+.indexBody {
+    padding-top: 18%;
+    padding-bottom: 23.5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    text-align: center;
+}
+
+.wordBody {
+    padding-left: 15%;
+    padding-right: 15%;
+    text-align: center;
+}
+
+.articleBody {
+    padding-left: 15%;
+    padding-right: 15%
+}
+
+.indexButton {
+    padding-top: 5%;
+}
+
+.indexFooter {
+    text-align: center;
+}
