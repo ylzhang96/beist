@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
 import '../styles/css/style.css';
 import {Button, ButtonToolbar, Col, Grid, Image, Label, Modal, Row} from 'react-bootstrap';    // import bootstrap framework
-import BeistLogo from '../images/sk.JPG';
+import BeistLogo from '../images/indexImage.jpg';
 import LoginForm from "./user/loginForm";
 import RegisterForm from "./user/registerForm";
 import fetch from 'isomorphic-fetch';
-import polyfill from 'es6-promise';
-import register from "../registerServiceWorker";
 
 class IndexBody extends Component {
     constructor(props) {
@@ -21,6 +19,7 @@ class IndexBody extends Component {
                 userTele: '',
                 userPass: '',
                 userCode: '',
+                userName: ''
             }
         }
     }
@@ -31,7 +30,8 @@ class IndexBody extends Component {
             userInfo: {
                 userTele: telephone,
                 userPass: this.state.userInfo.userPass,
-                userCode: this.state.userInfo.userCode
+                userCode: this.state.userInfo.userCode,
+                userName: this.state.userInfo.userName
             }
         });
     }
@@ -42,7 +42,8 @@ class IndexBody extends Component {
             userInfo: {
                 userTele: this.state.userInfo.userTele,
                 userPass: password,
-                userCode: this.state.userInfo.userCode
+                userCode: this.state.userInfo.userCode,
+                userName: this.state.userInfo.userName
             }
         });
     }
@@ -53,7 +54,20 @@ class IndexBody extends Component {
             userInfo: {
                 userTele: this.state.userInfo.userTele,
                 userPass: this.state.userInfo.userPass,
-                userCode: code
+                userCode: code,
+                userName: this.state.userInfo.userName
+            }
+        })
+    }
+
+    onChangeUserName(event) {
+        let name = event.target.value;
+        this.setState({
+            userInfo: {
+                userTele: this.state.userInfo.userTele,
+                userPass: this.state.userInfo.userPass,
+                userCode: this.state.userInfo.userCode,
+                userName: name
             }
         })
     }
@@ -68,7 +82,8 @@ class IndexBody extends Component {
             userInfo: {
                 userTele: '',
                 userPass: '',
-                userCode: ''
+                userCode: '',
+                userName: ''
             }
         })
     }
@@ -83,7 +98,8 @@ class IndexBody extends Component {
             userInfo: {
                 userTele: '',
                 userPass: '',
-                userCode: ''
+                userCode: '',
+                userName: ''
             }
         })
     }
@@ -97,7 +113,8 @@ class IndexBody extends Component {
             userInfo: {
                 userTele: '',
                 userPass: '',
-                userCode: ''
+                userCode: '',
+                userName: ''
             }
         })
 
@@ -112,7 +129,8 @@ class IndexBody extends Component {
             userInfo: {
                 userTele: '',
                 userPass: '',
-                userCode: ''
+                userCode: '',
+                userName: ''
             }
         })
     }
@@ -142,20 +160,23 @@ class IndexBody extends Component {
         }).then((json) => {
             console.log('parsed json', json)
             if (json.status === 0) {
+                this.setState({
+                    loginLabel: ''
+                });
                 let token = json.result.token;
                 localStorage.setItem("token", token);
-                // console.log(localStorage.getItem("token"));
+                console.log(localStorage.getItem("token"));
                 let userTele = json.result.userTele;
                 localStorage.setItem("userTele", userTele);
-                // console.log(localStorage.getItem("userTele"));
+                console.log(localStorage.getItem("userTele"));
                 let userName = json.result.userName;
                 localStorage.setItem("userName", userName);
-                // console.log(localStorage.getItem("userName"));
+                console.log(localStorage.getItem("userName"));
                 window.location.href = '/myPage';
             }
             else {
                 this.setState({
-                    loginLabel: "用户名或密码错误"
+                    loginLabel: "手机号或密码错误"
                     // 不能用function,this不是一个this,用()=>()
                     // https://stackoverflow.com/questions/39138974/react-typeerror-cannot-read-property-setstate-of-undefined
                 });
@@ -170,7 +191,45 @@ class IndexBody extends Component {
         this.setState({
             isRegister: true
         });
-
+        fetch("/api/user/register", {
+            method: "POST",
+            headers: {
+                'Cache-Control': 'no-cache',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'userTele': this.state.userInfo.userTele,
+                'password': this.state.userInfo.userPass,
+                'nickName': this.state.userInfo.userName
+            })
+            // JSON.stringify序列化
+        }).then(function (response) {
+            return response.json()
+        }).then((json) => {
+            console.log('parsed json', json)
+            if (json.status === 0) {
+                this.setState({
+                    registerLabel: ''
+                });
+                let token = json.result.token;
+                localStorage.setItem("token", token);
+                console.log(localStorage.getItem("token"));
+                let userTele = json.result.userTele;
+                localStorage.setItem("userTele", userTele);
+                console.log(localStorage.getItem("userTele"));
+                let userName = json.result.userName;
+                localStorage.setItem("userName", userName);
+                console.log(localStorage.getItem("userName"));
+                window.location.href = '/myPage';
+            }
+            else {
+                this.setState({
+                    registerLabel: json.result.errorMessage
+                });
+            }
+        }).catch(function (ex) {
+            console.log('parsing failed', ex)
+        })
     }
 
     render() {
@@ -214,9 +273,10 @@ class IndexBody extends Component {
                         <LoginForm onChangeUserTele={this.onChangeUserTele.bind(this)}
                                    onChangeUserPass={this.onChangeUserPass.bind(this)}
                                    userTele={this.state.userInfo.userTele} userPass={this.state.userInfo.userPass}/>
-                        <Label>{this.state.loginLabel}</Label>
                     </Modal.Body>
                     <Modal.Footer>
+                        <Label bsStyle="warning">{this.state.loginLabel}</Label>
+                        {'   '}
                         <Button onClick={this.openRegisterModal.bind(this)}>还未注册?</Button>
                         <Button onClick={this.userLogin.bind(this)} bsStyle="info">登录</Button>
                     </Modal.Footer>
@@ -230,10 +290,13 @@ class IndexBody extends Component {
                         <RegisterForm onChangeUserTele={this.onChangeUserTele.bind(this)}
                                       onChangeUserPass={this.onChangeUserPass.bind(this)}
                                       onChangeUserCode={this.onChangeUserCode.bind(this)}
+                                      onChangeUserName={this.onChangeUserName.bind(this)}
                                       userTele={this.state.userInfo.userTele} userPass={this.state.userInfo.userPass}
-                                      userCode={this.state.userInfo.userCode}/>
+                                      userCode={this.state.userInfo.userCode} userName={this.state.userInfo.userName}/>
                     </Modal.Body>
                     <Modal.Footer>
+                        <Label bsStyle="warning">{this.state.registerLabel}</Label>
+                        {'   '}
                         <Button onClick={this.openLoginModal.bind(this)}>已有账号?</Button>
                         <Button onClick={this.userRegister.bind(this)} bsStyle="info">注册</Button>
                     </Modal.Footer>

@@ -11,24 +11,60 @@ class UserSettings extends Component {
         super(props);
         this.state = {
             userPhoto: {Icon},
-            userTele: '17301649176',
-            userPass: '17301649176',
-            userNickName: 'Caroline',
+            userTele: '',
+            userPass: '',
+            userNickName: '',
             changeNickNameButton: '修改',
-        isDisabledChangeNickName: true
+            isDisabledChangeNickName: true
+        }
     }
+
+    onChangeUserName(event) {
+        let name = event.target.value;
+        this.setState({
+            userNickName: name
+        })
     }
 
     onChangeNickName() {
-        if(this.state.changeNickNameButton === '修改') {
+        if (this.state.changeNickNameButton === '修改') {
             this.setState({
                 isDisabledChangeNickName: false,
                 changeNickNameButton: '确认'
             });
         }
-        else {
+        // 一个问题：head的nickname必须刷新后才会修改
+        else if (this.state.changeNickNameButton === '确认') {
             // 数据库修改
+            fetch("/api/user/modifyNickName", {
+                method: "POST",
+                headers: {
+                    'Cache-Control': 'no-cache',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    'userTele': localStorage.getItem("userTele"),
+                    'nickName': this.state.userNickName
+                })
+                // JSON.stringify序列化
+            }).then(function (response) {
+                return response.json()
+            }).then((json) => {
+                console.log('parsed json', json)
+                if (json.status === 0) {
+                    let userName = json.result.nickName;
+                    localStorage.setItem("userName", userName);
+                    console.log(localStorage.getItem("userName"));
+                }
+                else {
+                    let errorMessage = json.result.errorMessage;
+                    alert(errorMessage);
+                }
+            }).catch(function (ex) {
+                console.log('parsing failed', ex)
+            })
             this.setState({
+                userNickName: localStorage.getItem("userName"),
                 isDisabledChangeNickName: true,
                 changeNickNameButton: '修改'
             });
@@ -45,11 +81,11 @@ class UserSettings extends Component {
                                 头像
                             </Col>
                             <Col sm={4}>
-                                <div className="text-center" ><Image src={Icon} circle/></div>
+                                <div className="text-center"><Image src={Icon} circle/></div>
                             </Col>
                             <Col sm={3}>
                                 <Button bsStyle="info"
-                                        >修改</Button>
+                                >修改</Button>
                             </Col>
                         </Row>
                     </FormGroup>
@@ -59,8 +95,9 @@ class UserSettings extends Component {
                                 昵称
                             </Col>
                             <Col sm={4}>
-                                <FormControl type="text" placeholder={this.state.userNickName}
-                                             disabled={this.state.isDisabledChangeNickName}/>
+                                <FormControl type="text" placeholder={localStorage.getItem("userName")}
+                                             disabled={this.state.isDisabledChangeNickName}
+                                             onChange={this.onChangeUserName.bind(this)}/>
                             </Col>
                             <Col sm={3}>
                                 <Button bsStyle="info"
@@ -75,10 +112,10 @@ class UserSettings extends Component {
                             </Col>
                             <Col sm={4}>
                                 <FormControl type="text" placeholder={
-                                    this.state.userTele[0]+this.state.userTele[1]+
-                                    this.state.userTele[2]+'****'+this.state.userTele[7]+
-                                    this.state.userTele[8]+this.state.userTele[9]+
-                                    this.state.userTele[10]} disabled/>
+                                    localStorage.getItem('userTele')[0] + localStorage.getItem('userTele')[1] +
+                                    localStorage.getItem('userTele')[2] + '****' + localStorage.getItem('userTele')[7] +
+                                    localStorage.getItem('userTele')[8] + localStorage.getItem('userTele')[9] +
+                                    localStorage.getItem('userTele')[10]} disabled/>
                             </Col>
                         </Row>
                     </FormGroup>

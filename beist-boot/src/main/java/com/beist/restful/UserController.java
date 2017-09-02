@@ -1,15 +1,11 @@
 package com.beist.restful;
 
-import com.beist.dao.UserRepository;
 import com.beist.entity.User;
-//import com.beist.util.security.JSONResult;
+import com.beist.service.UserService;
 import com.beist.util.JSONResult;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,37 +15,31 @@ import java.util.Map;
 public class UserController {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
+    // test
     @RequestMapping(path="")
     public Iterable<User> getAllUsers() {
-        return userRepository.findAll();
-    }
-
-    @RequestMapping(path="/test")
-    public Map<String, String> LoginTest(@RequestBody User user) {
-        System.out.println(user.getUserTele());
-        System.out.println(user.getPassword());
-        Map<String, String> userInfo = new HashMap<>();
-        userInfo.put("userTele", user.getUserTele());
-        return userInfo;
+        return userService.findAll();
     }
 
     @RequestMapping(path="/login", produces="application/json;charset=UTF-8")
     public String Login(@RequestBody User user) {
-//        System.out.println(user.getUserTele());
-//        System.out.println(user.getPassword());
         // 获取前端数据
         String userTele = user.getUserTele();
         String userPass = user.getPassword();
+
         Map<String, String> result = new HashMap<>();
-        // 如果登录者存在数据库中
-        if(userTele.equals("admin") && userPass.equals("admin")) {
-            String token = "tokentoken";
-            String userName = "Caroline";
-            result.put("userTele", userTele);
+        User userConfirmed = userService.login(userTele, userPass);
+
+        // 如果登录者存在数据库中,返回user,否则返回null
+        if(userConfirmed != null) {
+            String userTeleConfirmed = userConfirmed.getUserTele();
+            String userNameConfirmed = userConfirmed.getNickName();
+            String token = "tokentoken";    // 还差token未完成
+            result.put("userTele", userTeleConfirmed);
+            result.put("userName", userNameConfirmed);
             result.put("token", token);
-            result.put("userName", userName);
             return JSONResult.fillResultString(JSONResult.STATUS_OK, JSONResult.MESSAGE_OK, result);
         } else {
             return JSONResult.fillResultString(JSONResult.STATUS_FAIL, JSONResult.MESSAGE_FAIL, result);
@@ -57,14 +47,69 @@ public class UserController {
     }
 
     @RequestMapping(path="/register", produces="application/json;charset=UTF-8")
-    public Map<String, String> Register(@RequestBody User user) {
-//        System.out.println(user.getUserTele());
-//        System.out.println(user.getPassword());
+    public String Register(@RequestBody User user) {
         // 获取前端数据
-        //
-        Map<String, String> userInfo = new HashMap<>();
-        userInfo.put("token", user.getUserTele());
-        return userInfo;
+        String userTele = user.getUserTele();
+        String userPass = user.getPassword();
+        String nickName = user.getNickName();
+
+        Map<String, String> result = new HashMap<>();
+
+        if(userTele == null || userTele.equals("")) {
+            result.put("errorMessage", "手机号不能为空");
+            return JSONResult.fillResultString(JSONResult.STATUS_FAIL, JSONResult.MESSAGE_FAIL, result);
+        }
+        else if(nickName == null || nickName.equals("")) {
+            result.put("errorMessage", "昵称不能为空");
+            return JSONResult.fillResultString(JSONResult.STATUS_FAIL, JSONResult.MESSAGE_FAIL, result);
+        }
+        else if(userPass == null || userPass.equals("")) {
+            result.put("errorMessage", "密码不能为空");
+            return JSONResult.fillResultString(JSONResult.STATUS_FAIL, JSONResult.MESSAGE_FAIL, result);
+        }
+
+        User userConfirmed = userService.findByUserTele(userTele);
+        // 如果登录手机号存在，返回错误信息：手机号已存在
+        if(userConfirmed != null) {
+            result.put("errorMessage", "手机号已存在!");
+            return JSONResult.fillResultString(JSONResult.STATUS_FAIL, JSONResult.MESSAGE_FAIL, result);
+        }
+        else {
+            User userNew = new User();
+            userNew.setUserTele(userTele);
+            userNew.setPassword(userPass);
+            userNew.setNickName(nickName);
+            userService.save(userNew);
+            String token = "tokentoken";    // 还差token未完成
+            result.put("userTele", userTele);
+            result.put("userName", nickName);
+            result.put("token", token);
+            return JSONResult.fillResultString(JSONResult.STATUS_OK, JSONResult.MESSAGE_OK, result);
+        }
+    }
+
+    @RequestMapping(path="/modifyNickName", produces="application/json;charset=UTF-8")
+    public String ModifyNickName(@RequestBody User user) {
+        // 获取前端数据
+        String userTele = user.getUserTele();
+        String nickName = user.getNickName();
+
+        Map<String, String> result = new HashMap<>();
+
+        if(userTele == null || userTele.equals("")) {
+            result.put("errorMessage", "手机号不能为空");
+            return JSONResult.fillResultString(JSONResult.STATUS_FAIL, JSONResult.MESSAGE_FAIL, result);
+        }
+        else if(nickName == null || nickName.equals("")) {
+            result.put("errorMessage", "昵称不能为空");
+            return JSONResult.fillResultString(JSONResult.STATUS_FAIL, JSONResult.MESSAGE_FAIL, result);
+        }
+
+        // 修改数据库
+        userService.updatePersonNickNameByUserTele(nickName, userTele);
+        result.put("successMessage", "修改完成");
+        result.put("nickName", nickName);
+        return JSONResult.fillResultString(JSONResult.STATUS_OK, JSONResult.MESSAGE_OK, result);
     }
 
 
@@ -80,13 +125,8 @@ public class UserController {
         user.setUserTele(telephone);
         user.setPassword(password);
         user.setNickName(nickname);
-        userRepository.save(user);
+        userService.save(user);
         return user;
     }
 
-
-    @RequestMapping(path="/user")
-    public String testUser() {
-        return "hello user";
-    }
 }

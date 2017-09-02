@@ -26,8 +26,14 @@ class RegisterForm extends Component {
         else return 'warning';
     }
 
-    getUserCode() {
+    getValidationNameState() {
+        const length = this.props.userName.length;
+        if (length > 0) return 'success';
+        else return 'warning';
+    }
 
+    getUserCode() {
+        // 调用后台接口，发送短信给手机号，并进行验证，未完成
     }
 
     render() {
@@ -39,6 +45,17 @@ class RegisterForm extends Component {
                     </Col>
                     <Col sm={8}>
                         <FormControl type="text" placeholder="手机号" onChange={this.props.onChangeUserTele}/>
+                        <FormControl.Feedback />
+                        <HelpBlock>{''}</HelpBlock>
+                    </Col>
+                </FormGroup>
+
+                <FormGroup controlId="formHorizontalTele" validationState={this.getValidationNameState()}>
+                    <Col componentClass={ControlLabel} sm={3}>
+                        昵称
+                    </Col>
+                    <Col sm={8}>
+                        <FormControl type="text" placeholder="昵称" onChange={this.props.onChangeUserName}/>
                         <FormControl.Feedback />
                         <HelpBlock>{''}</HelpBlock>
                     </Col>

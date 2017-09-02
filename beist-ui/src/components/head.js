@@ -8,7 +8,17 @@ import {
 import Icon from '../images/icon.jpg';
 
 class Head extends Component {
+
+    exitUser(){
+        // 删除token
+        localStorage.setItem("token", "");
+        localStorage.setItem("userName", "");
+        localStorage.setItem("userTele", "");
+        window.location.href = '/';
+    }
+
     render() {
+
         return (
             <Navbar>
                 <Navbar.Header>
@@ -24,17 +34,14 @@ class Head extends Component {
                     </Nav>
                     <Nav pullRight>
                         <NavDropdown eventKey={3} title={<Image src={Icon} circle/>} id="basic-nav-dropdown">
-                            <MenuItem eventKey={3.1}><h5>Caroline</h5></MenuItem>
+                            <MenuItem eventKey={3.1}><h5>{localStorage.getItem("userName")}</h5></MenuItem>
                             <MenuItem divider/>
                             <MenuItem eventKey={3.2} href="/settings">设置</MenuItem>
                             <MenuItem eventKey={3.3} href="/about">帮助</MenuItem>
                             <MenuItem divider/>
-                            <MenuItem eventKey={3.4} href="/">注销</MenuItem>
+                            <MenuItem eventKey={3.4} onClick={this.exitUser.bind(this)}>注销</MenuItem>
                         </NavDropdown>
                     </Nav>
-                    {/*<Nav pullRight>*/}
-                        {/*<Image src={Icon} circle/>*/}
-                    {/*</Nav>*/}
                     <Navbar.Form pullRight>
                         <FormGroup>
                             <InputGroup>
