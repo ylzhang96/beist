@@ -1,16 +1,19 @@
 import React, {Component} from 'react';
 import '../styles/css/style.css';
-import {Button, ButtonToolbar, Col, Grid, Image, Modal, Row} from 'react-bootstrap';    // import bootstrap framework
+import {Button, ButtonToolbar, Col, Grid, Image, Label, Modal, Row} from 'react-bootstrap';    // import bootstrap framework
 import BeistLogo from '../images/sk.JPG';
 import LoginForm from "./user/loginForm";
 import RegisterForm from "./user/registerForm";
 import fetch from 'isomorphic-fetch';
 import polyfill from 'es6-promise';
+import register from "../registerServiceWorker";
 
 class IndexBody extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            loginLabel: '',
+            registerLabel: '',
             showLoginModal: false,
             showRegisterModal: false,
             isRegister: false,
@@ -57,6 +60,8 @@ class IndexBody extends Component {
 
     openLoginModal() {
         this.setState({
+            loginLabel: '',
+            registerLabel: '',
             showLoginModal: true,
             showRegisterModal: false,
             isRegister: false,
@@ -70,6 +75,8 @@ class IndexBody extends Component {
 
     openRegisterModal() {
         this.setState({
+            loginLabel: '',
+            registerLabel: '',
             showRegisterModal: true,
             showLoginModal: false,
             isRegister: true,
@@ -83,6 +90,8 @@ class IndexBody extends Component {
 
     closeLoginModal() {
         this.setState({
+            loginLabel: '',
+            registerLabel: '',
             showLoginModal: false,
             isRegister: false,
             userInfo: {
@@ -96,6 +105,8 @@ class IndexBody extends Component {
 
     closeRegisterModal() {
         this.setState({
+            loginLabel: '',
+            registerLabel: '',
             showRegisterModal: false,
             isRegister: false,
             userInfo: {
@@ -110,34 +121,56 @@ class IndexBody extends Component {
         this.setState({
             isRegister: false
         });
-        console.log(this.state.isRegister);
-        console.log(this.state.userInfo.userTele);
-        console.log(this.state.userInfo.userPass);
+        // console.log(this.state.isRegister);
+        // console.log(this.state.userInfo.userTele);
+        // console.log(this.state.userInfo.userPass);
         // Ajax - Fetch API
         // 调用后端接口，验证登录是否正确，正确转myPage
-        fetch("/api/user", {
+        fetch("/api/user/login", {
+            method: "POST",
             headers: {
-                'Cache-Control': 'no-cache'
-            }
-        }).then(function (response) {
-                console.log(response.status);
-                console.log(response.statusText);
-                console.log(response.json)
+                'Cache-Control': 'no-cache',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'userTele': this.state.userInfo.userTele,
+                'password': this.state.userInfo.userPass
             })
-
-
-        // window.location.href = '/myPage';
-
+            // JSON.stringify序列化
+        }).then(function (response) {
+            return response.json()
+        }).then((json) => {
+            console.log('parsed json', json)
+            if (json.status === 0) {
+                let token = json.result.token;
+                localStorage.setItem("token", token);
+                // console.log(localStorage.getItem("token"));
+                let userTele = json.result.userTele;
+                localStorage.setItem("userTele", userTele);
+                // console.log(localStorage.getItem("userTele"));
+                let userName = json.result.userName;
+                localStorage.setItem("userName", userName);
+                // console.log(localStorage.getItem("userName"));
+                window.location.href = '/myPage';
+            }
+            else {
+                this.setState({
+                    loginLabel: "用户名或密码错误"
+                    // 不能用function,this不是一个this,用()=>()
+                    // https://stackoverflow.com/questions/39138974/react-typeerror-cannot-read-property-setstate-of-undefined
+                });
+                // console.log("用户名或密码错误");
+            }
+        }).catch(function (ex) {
+            console.log('parsing failed', ex)
+        })
     }
 
     userRegister() {
         this.setState({
             isRegister: true
         });
-        console.log(this.state.isRegister);
-        console.log(this.state.userInfo.userTele);
-        console.log(this.state.userInfo.userPass);
-        console.log(this.state.userInfo.userCode);
+
     }
 
     render() {
@@ -181,6 +214,7 @@ class IndexBody extends Component {
                         <LoginForm onChangeUserTele={this.onChangeUserTele.bind(this)}
                                    onChangeUserPass={this.onChangeUserPass.bind(this)}
                                    userTele={this.state.userInfo.userTele} userPass={this.state.userInfo.userPass}/>
+                        <Label>{this.state.loginLabel}</Label>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button onClick={this.openRegisterModal.bind(this)}>还未注册?</Button>

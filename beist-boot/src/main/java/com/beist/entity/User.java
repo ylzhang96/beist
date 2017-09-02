@@ -1,6 +1,7 @@
 package com.beist.entity;
 
 import lombok.Data;
+import org.json.JSONObject;
 
 import javax.persistence.*;
 import java.io.Serializable;
