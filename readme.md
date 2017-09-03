@@ -4,6 +4,9 @@
 'Beist' is a Java Web & Android Application for memorizing English words.
 Now 'Beist' is still under development.
 
+## Design
+* Axure RP 8
+
 ## Languages and IDEs
 * Java : IntelliJ IDEA 2017.1
 * Javascript & html & css : WebStorm 2017.2.2
