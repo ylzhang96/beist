@@ -90,6 +90,8 @@ public class UserController {
             userNew.setUserTele(userTele);
             userNew.setPassword(userPass);
             userNew.setNickName(nickName);
+            userNew.setUserRange("四级");
+            userNew.setUserLevel("基础");
             userService.save(userNew);
 
             // 生成Token
@@ -125,7 +127,6 @@ public class UserController {
             return JSONResult.fillResultString(JSONResult.STATUS_FAIL, JSONResult.MESSAGE_FAIL, result);
         }
 
-        // 验证Token，时效好像不行
         JWTHelper jwtHelper = new JWTHelper();
         try {
             if(!jwtHelper.parseJWT(token).getSubject().equals(userTele)) {
@@ -134,6 +135,8 @@ public class UserController {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            result.put("errorMessage", "您没有权限，请登录");
+            return JSONResult.fillResultString(JSONResult.STATUS_FAIL, JSONResult.MESSAGE_FAIL, result);
         }
 
         // 修改数据库
