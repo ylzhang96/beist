@@ -3,6 +3,7 @@ package com.beist.restful;
 import com.beist.entity.User;
 import com.beist.service.UserService;
 import com.beist.util.JSONResult;
+import com.beist.util.JWTHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,7 +37,17 @@ public class UserController {
         if(userConfirmed != null) {
             String userTeleConfirmed = userConfirmed.getUserTele();
             String userNameConfirmed = userConfirmed.getNickName();
-            String token = "tokentoken";    // 还差token未完成
+            String userPassConfirmed = userConfirmed.getPassword();
+
+            // 生成Token
+            JWTHelper jwtHelper = new JWTHelper();
+            String token = null;
+            try {
+                token = jwtHelper.createJWT(userTeleConfirmed, JWTHelper.SHORT_JWT_TTL);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
             result.put("userTele", userTeleConfirmed);
             result.put("userName", userNameConfirmed);
             result.put("token", token);
@@ -80,7 +91,16 @@ public class UserController {
             userNew.setPassword(userPass);
             userNew.setNickName(nickName);
             userService.save(userNew);
-            String token = "tokentoken";    // 还差token未完成
+
+            // 生成Token
+            JWTHelper jwtHelper = new JWTHelper();
+            String token = null;
+            try {
+                token = jwtHelper.createJWT(userTele, JWTHelper.SHORT_JWT_TTL);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
             result.put("userTele", userTele);
             result.put("userName", nickName);
             result.put("token", token);
@@ -89,7 +109,7 @@ public class UserController {
     }
 
     @RequestMapping(path="/modifyNickName", produces="application/json;charset=UTF-8")
-    public String ModifyNickName(@RequestBody User user) {
+    public String ModifyNickName(@RequestHeader("token") String token, @RequestBody User user) {
         // 获取前端数据
         String userTele = user.getUserTele();
         String nickName = user.getNickName();
@@ -103,6 +123,17 @@ public class UserController {
         else if(nickName == null || nickName.equals("")) {
             result.put("errorMessage", "昵称不能为空");
             return JSONResult.fillResultString(JSONResult.STATUS_FAIL, JSONResult.MESSAGE_FAIL, result);
+        }
+
+        // 验证Token，时效好像不行
+        JWTHelper jwtHelper = new JWTHelper();
+        try {
+            if(!jwtHelper.parseJWT(token).getSubject().equals(userTele)) {
+                result.put("errorMessage", "您没有权限，请登录");
+                return JSONResult.fillResultString(JSONResult.STATUS_FAIL, JSONResult.MESSAGE_FAIL, result);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         // 修改数据库

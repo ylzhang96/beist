@@ -40,7 +40,8 @@ class UserSettings extends Component {
                 method: "POST",
                 headers: {
                     'Cache-Control': 'no-cache',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'token': localStorage.getItem("token")
                 },
                 body: JSON.stringify({
                     'userTele': localStorage.getItem("userTele"),
