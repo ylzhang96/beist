@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Data
 @Entity
@@ -32,6 +33,10 @@ public class Word implements Serializable{
     @Column(name = "WORD_LEVEL")
     private String wordLevel;
 
+    // User & Word 多对多关系 中间表
+    @OneToMany(mappedBy="word",cascade=CascadeType.ALL)
+    private Set<UserWord> UserWordList;
+
     public Long getWordId() {
         return wordId;
     }
@@ -42,6 +47,14 @@ public class Word implements Serializable{
 
     public String getWord() {
         return word;
+    }
+
+    public Set<UserWord> getUserWordList() {
+        return UserWordList;
+    }
+
+    public void setUserWordList(Set<UserWord> userWordList) {
+        UserWordList = userWordList;
     }
 
     public void setWord(String word) {

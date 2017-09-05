@@ -16,7 +16,7 @@ import java.util.Date;
 public class JWTHelper {
     public static final String JWT_ID = "jwt";
     public static final String JWT_SECRET = "beistohnosatoshisakana";
-    public static final int SHORT_JWT_TTL = 10 * 60 * 1000;  // 10MIN
+    public static final int SHORT_JWT_TTL = 3 * 60 * 1000;  // 3MIN
     public static final int JWT_TTL = 60 * 60 * 1000;
     public static final int JWT_REFRESH_INTERVAL = 55 * 60 * 1000;
     public static final int JWT_REFRESH_TTL = 12 * 60 * 60 * 1000;

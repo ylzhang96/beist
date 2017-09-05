@@ -19,7 +19,11 @@ class IndexBody extends Component {
                 userTele: '',
                 userPass: '',
                 userCode: '',
-                userName: ''
+                userName: '',
+                userPassAgain: '',
+                userQuestion: '',
+                userAnswer: '',
+                userRange:'六级'
             }
         }
     }
@@ -31,7 +35,11 @@ class IndexBody extends Component {
                 userTele: telephone,
                 userPass: this.state.userInfo.userPass,
                 userCode: this.state.userInfo.userCode,
-                userName: this.state.userInfo.userName
+                userName: this.state.userInfo.userName,
+                userPassAgain: this.state.userInfo.userPassAgain,
+                userQuestion: this.state.userInfo.userQuestion,
+                userAnswer: this.state.userInfo.userAnswer,
+                userRange: this.state.userInfo.userRange
             }
         });
     }
@@ -43,7 +51,11 @@ class IndexBody extends Component {
                 userTele: this.state.userInfo.userTele,
                 userPass: password,
                 userCode: this.state.userInfo.userCode,
-                userName: this.state.userInfo.userName
+                userName: this.state.userInfo.userName,
+                userPassAgain: this.state.userInfo.userPassAgain,
+                userQuestion: this.state.userInfo.userQuestion,
+                userAnswer: this.state.userInfo.userAnswer,
+                userRange: this.state.userInfo.userRange
             }
         });
     }
@@ -55,7 +67,11 @@ class IndexBody extends Component {
                 userTele: this.state.userInfo.userTele,
                 userPass: this.state.userInfo.userPass,
                 userCode: code,
-                userName: this.state.userInfo.userName
+                userName: this.state.userInfo.userName,
+                userPassAgain: this.state.userInfo.userPassAgain,
+                userQuestion: this.state.userInfo.userQuestion,
+                userAnswer: this.state.userInfo.userAnswer,
+                userRange: this.state.userInfo.userRange
             }
         })
     }
@@ -67,7 +83,75 @@ class IndexBody extends Component {
                 userTele: this.state.userInfo.userTele,
                 userPass: this.state.userInfo.userPass,
                 userCode: this.state.userInfo.userCode,
-                userName: name
+                userName: name,
+                userPassAgain: this.state.userInfo.userPassAgain,
+                userQuestion: this.state.userInfo.userQuestion,
+                userAnswer: this.state.userInfo.userAnswer,
+                userRange: this.state.userInfo.userRange
+            }
+        })
+    }
+
+    onChangeUserPassAgain(event) {
+        let passAgain = event.target.value;
+        this.setState({
+            userInfo: {
+                userTele: this.state.userInfo.userTele,
+                userPass: this.state.userInfo.userPass,
+                userCode: this.state.userInfo.userCode,
+                userName: this.state.userInfo.userName,
+                userPassAgain: passAgain,
+                userQuestion: this.state.userInfo.userQuestion,
+                userAnswer: this.state.userInfo.userAnswer,
+                userRange: this.state.userInfo.userRange
+            }
+        })
+    }
+
+    onChangeUserQuestion(event) {
+        let question = event.target.value;
+        this.setState({
+            userInfo: {
+                userTele: this.state.userInfo.userTele,
+                userPass: this.state.userInfo.userPass,
+                userCode: this.state.userInfo.userCode,
+                userName: this.state.userInfo.userName,
+                userPassAgain: this.state.userInfo.userPassAgain,
+                userQuestion: question,
+                userAnswer: this.state.userInfo.userAnswer,
+                userRange: this.state.userInfo.userRange
+            }
+        })
+    }
+
+    onChangeUserAnswer(event) {
+        let answer = event.target.value;
+        this.setState({
+            userInfo: {
+                userTele: this.state.userInfo.userTele,
+                userPass: this.state.userInfo.userPass,
+                userCode: this.state.userInfo.userCode,
+                userName: this.state.userInfo.userName,
+                userPassAgain: this.state.userInfo.userPassAgain,
+                userQuestion: this.state.userInfo.userQuestion,
+                userAnswer: answer,
+                userRange: this.state.userInfo.userRange
+            }
+        })
+    }
+
+    onChangeUserRange(event) {
+        let range = event.target.value;
+        this.setState({
+            userInfo: {
+                userTele: this.state.userInfo.userTele,
+                userPass: this.state.userInfo.userPass,
+                userCode: this.state.userInfo.userCode,
+                userName: this.state.userInfo.userName,
+                userPassAgain: this.state.userInfo.userPassAgain,
+                userQuestion: this.state.userInfo.userQuestion,
+                userAnswer: this.state.userInfo.userAnswer,
+                userRange: range
             }
         })
     }
@@ -83,7 +167,11 @@ class IndexBody extends Component {
                 userTele: '',
                 userPass: '',
                 userCode: '',
-                userName: ''
+                userName: '',
+                userPassAgain: '',
+                userQuestion: '',
+                userAnswer: '',
+                userRange:'六级'
             }
         })
     }
@@ -99,7 +187,11 @@ class IndexBody extends Component {
                 userTele: '',
                 userPass: '',
                 userCode: '',
-                userName: ''
+                userName: '',
+                userPassAgain: '',
+                userQuestion: '',
+                userAnswer: '',
+                userRange:'六级'
             }
         })
     }
@@ -114,7 +206,11 @@ class IndexBody extends Component {
                 userTele: '',
                 userPass: '',
                 userCode: '',
-                userName: ''
+                userName: '',
+                userPassAgain: '',
+                userQuestion: '',
+                userAnswer: '',
+                userRange:'六级'
             }
         })
 
@@ -130,7 +226,11 @@ class IndexBody extends Component {
                 userTele: '',
                 userPass: '',
                 userCode: '',
-                userName: ''
+                userName: '',
+                userPassAgain: '',
+                userQuestion: '',
+                userAnswer: '',
+                userRange:'六级'
             }
         })
     }
@@ -191,45 +291,54 @@ class IndexBody extends Component {
         this.setState({
             isRegister: true
         });
-        fetch("/api/user/register", {
-            method: "POST",
-            headers: {
-                'Cache-Control': 'no-cache',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                'userTele': this.state.userInfo.userTele,
-                'password': this.state.userInfo.userPass,
-                'nickName': this.state.userInfo.userName
+        if (this.state.userInfo.userPassAgain !== this.state.userInfo.userPass) {
+            this.setState({
+                registerLabel: '密码与确认密码不一致！'
+            });
+        } else {
+            fetch("/api/user/register", {
+                method: "POST",
+                headers: {
+                    'Cache-Control': 'no-cache',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    'userTele': this.state.userInfo.userTele,
+                    'password': this.state.userInfo.userPass,
+                    'nickName': this.state.userInfo.userName,
+                    'userQuestion': this.state.userInfo.userQuestion,
+                    'userAnswer': this.state.userInfo.userAnswer,
+                    'userRange': this.state.userInfo.userRange
+                })
+                // JSON.stringify序列化
+            }).then(function (response) {
+                return response.json()
+            }).then((json) => {
+                console.log('parsed json', json)
+                if (json.status === 0) {
+                    this.setState({
+                        registerLabel: ''
+                    });
+                    let token = json.result.token;
+                    localStorage.setItem("token", token);
+                    console.log(localStorage.getItem("token"));
+                    let userTele = json.result.userTele;
+                    localStorage.setItem("userTele", userTele);
+                    console.log(localStorage.getItem("userTele"));
+                    let userName = json.result.userName;
+                    localStorage.setItem("userName", userName);
+                    console.log(localStorage.getItem("userName"));
+                    window.location.href = '/myPage';
+                }
+                else {
+                    this.setState({
+                        registerLabel: json.result.errorMessage
+                    });
+                }
+            }).catch(function (ex) {
+                console.log('parsing failed', ex)
             })
-            // JSON.stringify序列化
-        }).then(function (response) {
-            return response.json()
-        }).then((json) => {
-            console.log('parsed json', json)
-            if (json.status === 0) {
-                this.setState({
-                    registerLabel: ''
-                });
-                let token = json.result.token;
-                localStorage.setItem("token", token);
-                console.log(localStorage.getItem("token"));
-                let userTele = json.result.userTele;
-                localStorage.setItem("userTele", userTele);
-                console.log(localStorage.getItem("userTele"));
-                let userName = json.result.userName;
-                localStorage.setItem("userName", userName);
-                console.log(localStorage.getItem("userName"));
-                window.location.href = '/myPage';
-            }
-            else {
-                this.setState({
-                    registerLabel: json.result.errorMessage
-                });
-            }
-        }).catch(function (ex) {
-            console.log('parsing failed', ex)
-        })
+        }
     }
 
     render() {
@@ -291,8 +400,16 @@ class IndexBody extends Component {
                                       onChangeUserPass={this.onChangeUserPass.bind(this)}
                                       onChangeUserCode={this.onChangeUserCode.bind(this)}
                                       onChangeUserName={this.onChangeUserName.bind(this)}
+                                      onChangeUserPassAgain={this.onChangeUserPassAgain.bind(this)}
+                                      onChangeUserQuestion={this.onChangeUserQuestion.bind(this)}
+                                      onChangeUserAnswer={this.onChangeUserAnswer.bind(this)}
+                                      onChangeUserRange={this.onChangeUserRange.bind(this)}
                                       userTele={this.state.userInfo.userTele} userPass={this.state.userInfo.userPass}
-                                      userCode={this.state.userInfo.userCode} userName={this.state.userInfo.userName}/>
+                                      userCode={this.state.userInfo.userCode} userName={this.state.userInfo.userName}
+                                      userPassAgain={this.state.userInfo.userPassAgain}
+                                      userQuestion={this.state.userInfo.userQuestion}
+                                      userAnswer={this.state.userInfo.userAnswer}
+                                      userRange={this.state.userInfo.userRange}/>
                     </Modal.Body>
                     <Modal.Footer>
                         <Label bsStyle="warning">{this.state.registerLabel}</Label>

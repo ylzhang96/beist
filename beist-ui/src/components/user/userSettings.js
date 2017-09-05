@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {
-    Button, Col, ControlLabel, Form, FormControl, FormGroup, Grid, Image, Jumbotron, Label, Modal, Row, Tab,
-    Tabs
-} from "react-bootstrap";
+    Button, Col, ControlLabel, Form, FormControl, FormGroup, Image, Row} from "react-bootstrap";
 import Icon from '../../images/41.jpg';
 
 class UserSettings extends Component {
@@ -30,10 +28,10 @@ class UserSettings extends Component {
         if (this.state.changeNickNameButton === '修改') {
             this.setState({
                 isDisabledChangeNickName: false,
-                changeNickNameButton: '确认'
+                changeNickNameButton: '确认',
+                userNickName: ''
             });
         }
-        // 一个问题：head的nickname必须刷新后才会修改
         else if (this.state.changeNickNameButton === '确认') {
             // 数据库修改
             fetch("/api/user/modifyNickName", {
@@ -56,19 +54,28 @@ class UserSettings extends Component {
                     let userName = json.result.nickName;
                     localStorage.setItem("userName", userName);
                     console.log(localStorage.getItem("userName"));
+                    this.setState({
+                        userNickName: localStorage.getItem("userName"),
+                        isDisabledChangeNickName: true,
+                        changeNickNameButton: '修改'
+                    });
+                    window.location.href = '/settings';
                 }
                 else {
                     let errorMessage = json.result.errorMessage;
                     alert(errorMessage);
+                    this.setState({
+                        userNickName: localStorage.getItem("userName"),
+                        isDisabledChangeNickName: true,
+                        changeNickNameButton: '修改'
+                    });
+                    if(errorMessage === '您没有权限，请登录') {
+                        window.location.href='/';
+                    }
                 }
             }).catch(function (ex) {
                 console.log('parsing failed', ex)
             })
-            this.setState({
-                userNickName: localStorage.getItem("userName"),
-                isDisabledChangeNickName: true,
-                changeNickNameButton: '修改'
-            });
         }
     }
 

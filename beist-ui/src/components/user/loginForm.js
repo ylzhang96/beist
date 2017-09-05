@@ -6,28 +6,28 @@ class LoginForm extends Component {
 
     // 欠缺校验
 
-    getValidationTelState() {
-        const length = this.props.userTele.length;
-        if (length === 11) return 'success';
-        else if (length > 0) {
-            return 'warning';
-        }
-        else if(length === 0) {
-            return 'warning';
-        }
-    }
-
-    getValidationPassState() {
-        const length = this.props.userPass.length;
-        if (length > 0) return 'success';
-        else return 'warning';
-    }
+    // getValidationTelState() {
+    //     const length = this.props.userTele.length;
+    //     if (length === 11) return 'success';
+    //     else if (length > 0) {
+    //         return 'warning';
+    //     }
+    //     else if(length === 0) {
+    //         return 'warning';
+    //     }
+    // }
+    //
+    // getValidationPassState() {
+    //     const length = this.props.userPass.length;
+    //     if (length > 0) return 'success';
+    //     else return 'warning';
+    // }
 
     render() {
         return (
             <Form horizontal>
 
-                <FormGroup controlId="formHorizontalTele" validationState={this.getValidationTelState()}>
+                <FormGroup controlId="formHorizontalTele">
                     <Col componentClass={ControlLabel} sm={3}>
                         手机号
                     </Col>
@@ -38,7 +38,7 @@ class LoginForm extends Component {
                     </Col>
                 </FormGroup>
 
-                <FormGroup controlId="formHorizontalPassword" validationState={this.getValidationPassState()}>
+                <FormGroup controlId="formHorizontalPassword">
                     <Col componentClass={ControlLabel} sm={3}>
                         密码
                     </Col>

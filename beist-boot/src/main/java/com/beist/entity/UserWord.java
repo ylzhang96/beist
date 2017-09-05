@@ -27,8 +27,68 @@ public class UserWord implements Serializable {
     @Column(name = "PROFICIENCY_UPDATE")
     private Date proficiencyUpdate;
 
-    // 外键
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "USER_ID_", unique = true)
+    private User user;
 
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "WORD_ID", unique = true)
+    private Word word;
 
+    public Long getUserWordId() {
+        return userWordId;
+    }
+
+    public void setUserWordId(Long userWordId) {
+        this.userWordId = userWordId;
+    }
+
+    public String getProficiency() {
+        return proficiency;
+    }
+
+    public void setProficiency(String proficiency) {
+        this.proficiency = proficiency;
+    }
+
+    public String getIsCorrect() {
+        return isCorrect;
+    }
+
+    public void setIsCorrect(String isCorrect) {
+        this.isCorrect = isCorrect;
+    }
+
+    public Integer getWrongCount() {
+        return wrongCount;
+    }
+
+    public void setWrongCount(Integer wrongCount) {
+        this.wrongCount = wrongCount;
+    }
+
+    public Date getProficiencyUpdate() {
+        return proficiencyUpdate;
+    }
+
+    public void setProficiencyUpdate(Date proficiencyUpdate) {
+        this.proficiencyUpdate = proficiencyUpdate;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Word getWord() {
+        return word;
+    }
+
+    public void setWord(Word word) {
+        this.word = word;
+    }
 }
 

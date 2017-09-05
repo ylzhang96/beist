@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Data
 @Entity
@@ -47,6 +48,20 @@ public class User implements Serializable {
 
     @Column(name = "USER_ICON")
     private String userIcon;
+
+    // User & Word 多对多关系 中间表
+    // http://blog.csdn.net/liuxianbing119/article/details/7283769
+    // 对应相应的多对一中的private User user的user,而不是User
+    @OneToMany(mappedBy="user",cascade=CascadeType.ALL)
+    private Set<UserWord> UserWordList;
+
+    public Set<UserWord> getUserWordList() {
+        return UserWordList;
+    }
+
+    public void setUserWordList(Set<UserWord> userWordList) {
+        UserWordList = userWordList;
+    }
 
     public Long getUserId() {
         return userId;

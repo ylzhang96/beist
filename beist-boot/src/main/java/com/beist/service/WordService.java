@@ -1,7 +1,12 @@
 package com.beist.service;
 
-/**
- * Created by zhang on 2017/9/3.
- */
+import com.beist.entity.Word;
+
+import java.util.List;
+
 public interface WordService {
+    List<Word> fuzzySearchWord(String fuzzyWordName);
+    int countWordByWordLevelEquals(String level);
+    Long count();
+
 }
