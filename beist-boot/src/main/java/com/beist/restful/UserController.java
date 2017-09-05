@@ -225,7 +225,6 @@ public class UserController {
 
     }
 
-
     @RequestMapping(value = "/add/{telephone}/{password}/{nickname}")
     public User addUser(@PathVariable String telephone,
                         @PathVariable String password, @PathVariable String nickname) {

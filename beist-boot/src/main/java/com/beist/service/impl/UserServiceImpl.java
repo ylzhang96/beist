@@ -57,4 +57,10 @@ public class UserServiceImpl implements UserService{
         userRepository.updateUserPlanWordNumberByUserTele(userPlanWordNumber, userTele);
         return userPlanWordNumber;
     }
+
+    @Override
+    @Transactional
+    public void updateUserLevelByUserTele(String userLevel, String userTele) {
+        userRepository.updateUserLevelByUserTele(userLevel, userTele);
+    }
 }

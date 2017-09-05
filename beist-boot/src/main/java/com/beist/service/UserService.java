@@ -9,7 +9,7 @@ public interface UserService {
     User login(String userTele, String userPass);
     User findByUserTele(String userTele);
     void updatePersonNickNameByUserTele(String nickName, String userTele);
+    void updateUserLevelByUserTele(String userLevel, String userTele);
     int updateUserRangeByUserTele(String userRange, String userTele);
-
 
 }

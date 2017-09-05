@@ -17,7 +17,7 @@
       <file leaf-file-name="reciteSettings.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/user/reciteSettings.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
+            <state relative-caret-position="384">
               <caret line="75" column="69" lean-forward="true" selection-start-line="75" selection-start-column="69" selection-end-line="75" selection-end-column="69" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -108,7 +108,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="952" />
     <option name="width" value="976" />
     <option name="height" value="1038" />
@@ -257,15 +257,15 @@
       <workItem from="1504278343624" duration="721000" />
       <workItem from="1504283540596" duration="11142000" />
       <workItem from="1504464664300" duration="606000" />
-      <workItem from="1504601066939" duration="29655000" />
+      <workItem from="1504601066939" duration="30200000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135489000" />
+    <option name="totallyTimeSpent" value="136034000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20729166" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -684,7 +684,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/user/reciteSettings.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
+        <state relative-caret-position="384">
           <caret line="75" column="69" lean-forward="true" selection-start-line="75" selection-start-column="69" selection-end-line="75" selection-end-column="69" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
