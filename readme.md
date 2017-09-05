@@ -39,3 +39,14 @@ Now 'Beist' is still under development.
 * Spring Data JPA / Hibernate
 
 ## User Guide
+
+## Predict Timetable
+* 9.6 To test(word table and user table)  between 2h and 3h
+* 9.6 UserWord table init  in 2h
+* 9.6 Word Select between 4h and 5h
+* 9.6 Crawler
+
+* 9.6 ArticleWord table init in 3h
+* 9.7 UserArticle table init in 2h
+* 9.7 Article Select between 4h and 5h
+* 9.7 Help in 2h

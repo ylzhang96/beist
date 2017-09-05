@@ -30,6 +30,14 @@
     padding-bottom: 2%;
 }
 
+.padBot0Class {
+    padding-bottom: 0%;
+}
+
+.padBot10Class {
+    padding-bottom: 10%;
+}
+
 .floatClass {
     float: right;
 }

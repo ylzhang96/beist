@@ -13,7 +13,7 @@ class SettingsBody extends Component {
                         <div className="container padTop5Class"><UserSettings/></div>
                     </Tab>
                     <Tab eventKey={2} title="背诵设置">
-                        <div className="container padTop5Class"><ReciteSettings/></div>
+                        <div className="container padTop5Class padBot10Class"><ReciteSettings/></div>
                     </Tab>
                 </Tabs>
             </div>

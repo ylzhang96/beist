@@ -38,6 +38,14 @@ public interface UserRepository extends CrudRepository<User, Long> {
     @Query("update User u set nickName = :nickName where userTele =:userTele")
     void updatePersonNickNameByUserTele(@Param("nickName")String nickName, @Param("userTele")String userTele);
 
+    // 修改用户难度
+    @Modifying
+    @Query("update User u set userRange = :userRange where userTele =:userTele")
+    void updateUserRangeByUserTele(@Param("userRange")String userRange, @Param("userTele")String userTele);
 
+    // 修改用户要背单词数
+    @Modifying
+    @Query("update User u set userPlanWordNumber = :userPlanWordNumber where userTele =:userTele")
+    void updateUserPlanWordNumberByUserTele(@Param("userPlanWordNumber")Integer userPlanWordNumber, @Param("userTele")String userTele);
 
 }
