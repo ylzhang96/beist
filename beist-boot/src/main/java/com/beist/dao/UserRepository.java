@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
+import java.util.Date;
+
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
 // CRUD refers Create, Read, Update, Delete
 
@@ -33,15 +35,30 @@ public interface UserRepository extends CrudRepository<User, Long> {
     // 通过用户手机号查找
     User findByUserTele(String userTele);
 
+    // 修改用户每日背单词数
+    @Modifying
+    @Query("update User u set wordNumberPerDay = :wordNumberPerDay where userTele =:userTele")
+    void updateWordNumberPerDayByUserTele(@Param("wordNumberPerDay") int wordNumberPerDay, @Param("userTele") String userTele);
+
+    // 修改用户最近登录时间
+    @Modifying
+    @Query("update User u set lastLoginDate = :lastLoginDate where userTele =:userTele")
+    void updateLastLoginDateByUserTele(@Param("lastLoginDate") Date lastLoginDate, @Param("userTele") String userTele);
+
     // 修改用户昵称
     @Modifying
-    @Query("update User u set nickName = :nickName where userTele =:userTele")
-    void updatePersonNickNameByUserTele(@Param("nickName")String nickName, @Param("userTele")String userTele);
+    @Query("update User u set nickName = :nickName where userTele = :userTele")
+    void updatePersonNickNameByUserTele(@Param("nickName") String nickName, @Param("userTele") String userTele);
 
     // 修改用户难度
     @Modifying
     @Query("update User u set userRange = :userRange where userTele =:userTele")
     void updateUserRangeByUserTele(@Param("userRange")String userRange, @Param("userTele")String userTele);
+
+    // 修改用户basic_word_id
+    @Modifying
+    @Query("update User u set basicWordId = :basicWordId where userTele =:userTele")
+    void updateBasicWordIdByUserTele(@Param("basicWordId")Long basicWordId, @Param("userTele")String userTele);
 
     // 修改用户水平
     @Modifying

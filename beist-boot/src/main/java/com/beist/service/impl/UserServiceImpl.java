@@ -3,11 +3,12 @@ package com.beist.service.impl;
 import com.beist.dao.UserRepository;
 import com.beist.dao.WordRepository;
 import com.beist.entity.User;
-import com.beist.entity.Word;
 import com.beist.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Date;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -24,8 +25,8 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void save(User user) {
-        userRepository.save(user);
+    public User save(User user) {
+        return userRepository.save(user);
     }
 
     @Override
@@ -63,4 +64,24 @@ public class UserServiceImpl implements UserService{
     public void updateUserLevelByUserTele(String userLevel, String userTele) {
         userRepository.updateUserLevelByUserTele(userLevel, userTele);
     }
+
+    @Override
+    @Transactional
+    public void updateWordNumberPerDayByUserTele(int wordNumberPerDay, String userTele) {
+        userRepository.updateWordNumberPerDayByUserTele(wordNumberPerDay, userTele);
+    }
+
+    @Override
+    @Transactional
+    public void updateBasicWordIdByUserTele(Long basicWordId, String userTele) {
+        userRepository.updateBasicWordIdByUserTele(basicWordId, userTele);
+    }
+
+    @Override
+    @Transactional
+    public void updateLastLoginDateByUserTele(Date lastLoginDate, String userTele) {
+        userRepository.updateLastLoginDateByUserTele(lastLoginDate, userTele);
+    }
+
+
 }

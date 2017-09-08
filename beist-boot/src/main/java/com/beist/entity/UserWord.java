@@ -6,7 +6,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-@Data
 @Entity
 @Table(name = "UW")
 public class UserWord implements Serializable {
@@ -16,10 +15,10 @@ public class UserWord implements Serializable {
     private Long userWordId;
 
     @Column(name = "PROFICIENCY")
-    private String proficiency;
+    private int proficiency;
 
     @Column(name = "IS_COLLECT")
-    private String isCorrect;
+    private String isCollect;
 
     @Column(name = "WRONG_COUNT")
     private Integer wrongCount;
@@ -43,20 +42,20 @@ public class UserWord implements Serializable {
         this.userWordId = userWordId;
     }
 
-    public String getProficiency() {
+    public int getProficiency() {
         return proficiency;
     }
 
-    public void setProficiency(String proficiency) {
+    public void setProficiency(int proficiency) {
         this.proficiency = proficiency;
     }
 
-    public String getIsCorrect() {
-        return isCorrect;
+    public String getIsCollect() {
+        return isCollect;
     }
 
-    public void setIsCorrect(String isCorrect) {
-        this.isCorrect = isCorrect;
+    public void setIsCollect(String isCollect) {
+        this.isCollect = isCollect;
     }
 
     public Integer getWrongCount() {

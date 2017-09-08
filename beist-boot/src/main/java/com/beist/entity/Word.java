@@ -6,7 +6,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
-@Data
 @Entity
 @Table(name = "W")
 public class Word implements Serializable{

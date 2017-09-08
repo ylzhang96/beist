@@ -35,4 +35,24 @@ public interface WordRepository extends CrudRepository<Word, Long> {
     // 统计level个数
     int countWordByWordLevelEquals(String level);
 
+    // 返回某个level的随机8个单词
+    @Query(value = "select top 8 * from W w where w.WORD_LEVEL = :wordLevel order by newid()", nativeQuery = true)
+    List<Word> findRandom8ByWordLevelEquals(@Param("wordLevel") String wordLevel);
+
+    // 返回该单词的四个选项的单词,第一个肯定为正确答案
+    @Query(value = "select top 4 * from W w order by abs(w.WORD_ID - :wordId)", nativeQuery = true)
+    List<Word> findTop4MeanByWordId(@Param("wordId") Long wordId);
+
+    // 返回每个level的第一个单词的word_id
+    @Query(value = "select top 1 * from W w where w.WORD_LEVEL = :level order by w.WORD_ID", nativeQuery = true)
+    Word findFirstByWordLevelEqualsOrderByWordId(@Param("level") String level);
+
+
+    // 如果不够呢？
+    // http://blog.csdn.net/cuiyaoqiang/article/details/51240955
+    @Query(value = "select * from W w where w.WORD_ID >= :basicId order by (w.WORD_ID - :basicId)", nativeQuery = true)
+    List<Word> findTopNFromBasicId(@Param("basicId") Long basicId);
+
+    Word findByWordId(Long wordId);
+
 }

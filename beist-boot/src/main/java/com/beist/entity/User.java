@@ -4,9 +4,9 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Set;
 
-@Data
 @Entity
 @Table(name = "U")
 public class User implements Serializable {
@@ -49,6 +49,15 @@ public class User implements Serializable {
     @Column(name = "USER_ICON")
     private String userIcon;
 
+    @Column(name = "BASIC_WORD_ID")
+    private Long basicWordId;
+
+    @Column(name = "LAST_LOGIN_DATE")
+    private Date lastLoginDate;
+
+    @Column(name = "WORD_NUMBER_PER_DAY")
+    private Integer wordNumberPerDay;
+
     // User & Word 多对多关系 中间表
     // http://blog.csdn.net/liuxianbing119/article/details/7283769
     // 对应相应的多对一中的private User user的user,而不是User
@@ -65,6 +74,30 @@ public class User implements Serializable {
 
     public Long getUserId() {
         return userId;
+    }
+
+    public Long getBasicWordId() {
+        return basicWordId;
+    }
+
+    public void setBasicWordId(Long basicWordId) {
+        this.basicWordId = basicWordId;
+    }
+
+    public Date getLastLoginDate() {
+        return lastLoginDate;
+    }
+
+    public void setLastLoginDate(Date lastLoginDate) {
+        this.lastLoginDate = lastLoginDate;
+    }
+
+    public Integer getWordNumberPerDay() {
+        return wordNumberPerDay;
+    }
+
+    public void setWordNumberPerDay(Integer wordNumberPerDay) {
+        this.wordNumberPerDay = wordNumberPerDay;
     }
 
     public void setUserId(Long userId) {
