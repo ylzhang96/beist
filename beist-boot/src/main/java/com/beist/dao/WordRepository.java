@@ -55,4 +55,7 @@ public interface WordRepository extends CrudRepository<Word, Long> {
 
     Word findByWordId(Long wordId);
 
+    // 通过单词查找所属难度类型
+    Word findByWord(String word);
+
 }

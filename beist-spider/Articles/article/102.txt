@@ -1,0 +1,9 @@
+Chinese national arrested by FBI in connection to hacking charge
+A Chinese national was arrested by the FBI on charges they say connect him to distributing malicious software like the one used in a 2015 hack, CBS News has confirmed.
+Yu Pingan was captured Monday night at Los Angeles International Airport and appeared in the Southern District of California Court on Wednesday, according to officials.
+The FBI obtained Yu¡¯s resume via a search warrant. According to the FBI, he was born December 16, 1980, lives in Shanghai, China, and his expertise includes computer network security and computer programming.
+The FBI accuses him of conspiring with at least two others to use software known as Sakula -- similar to the kind to breach the U.S. Office of Personnel Management (OPM) to obtain records of millions of American government employees, U.S. authorities said.
+Defendant Yu and co-conspirators ... would acquire and use malicious software tools, some of which were rare variants previously unidentified by the FBI and information security community, including a malicious software tool known as Sakula, the court documents read.
+The complaint filed by the FBI lists unidentified companies that were affected by the Sakula malware were in areas such as San Diego, Calif.; Massachusetts; Los Angeles, Calif.; and Arizona.
+In the wake of the OPM breach, then-chief Katherine Archuleta resigned in July 2015 after nearly 22 million personnel records were stolen. At the time, hackers also stole information about people¡¯s financial, personal and employment histories. They stole information about 19.7 million Americans who were subjected to federal background checks as a condition of employment, as well as 1.8 million Americans who were listed as family members or friends of those applicants.
+CBS News¡¯ Katie Ross Dominick contributed to this report.

@@ -59,24 +59,28 @@ public class UserController {
             if(!fmt.format(userConfirmed.getLastLoginDate()).toString().equals(fmt.format(new Date()).toString())) {
                 int todayNewWord = userConfirmed.getWordNumberPerDay() / 3;   // 3
                 int todayOldWord = userConfirmed.getWordNumberPerDay() - todayNewWord;  // 7
+                Long basicIdSet = userConfirmed.getBasicWordId();;
 
                 // 新词逻辑
                 int unReciteNewWordNum = wordService.countUnReciteNewWord(userConfirmed.getUserId(), userConfirmed.getUserRange());
+                System.out.println(wordService.countUnReciteNewWord(userConfirmed.getUserId(), userConfirmed.getUserRange()));
                 if(unReciteNewWordNum < userConfirmed.getWordNumberPerDay()) {  // 新词数小于今天要背的数的时候
                     if (unReciteNewWordNum < todayNewWord) {
                         // 继续存
                         // 多取一个
                         todayNewWord = todayNewWord - unReciteNewWordNum;
+
                         Long basicId = userConfirmed.getBasicWordId();
                         if (basicId != -1) {  // 仍然有新词
                             List<Word> wordList = wordService.findTopNFromBasicId(todayNewWord + 1, basicId);
                             int wordListLength = wordList.size() - 1;
+                            System.out.println(wordListLength);
                             for (int i = 0; i < wordListLength; i++) {
                                 wordService.saveUserWord(userConfirmed, wordList.get(i));
                             }
                             if (wordListLength == todayNewWord) {
-                                userService.updateBasicWordIdByUserTele(wordList.get(wordListLength).getWordId(),
-                                        userConfirmed.getUserTele());
+                                basicIdSet = wordList.get(wordListLength).getWordId();
+                                userService.updateBasicWordIdByUserTele(basicIdSet, userConfirmed.getUserTele());
                             } else {
                                 todayOldWord = todayOldWord + todayNewWord - wordListLength;
                                 userService.updateBasicWordIdByUserTele(-1L, userConfirmed.getUserTele());
@@ -87,6 +91,8 @@ public class UserController {
                     } else {
                         todayOldWord = todayOldWord - unReciteNewWordNum + todayNewWord;
                     }
+
+
 
                     // 旧词逻辑
                     int unReciteOldWordNum = wordService.countUnReciteOldWord(userConfirmed.getUserId(), userConfirmed.getUserRange());
@@ -100,9 +106,8 @@ public class UserController {
                             wordService.updateWordWrongCount(userConfirmed.getUserId(), word.getWordId());
                         }
                         if (userWordListLength < todayOldWord && userConfirmed.getBasicWordId() != -1L) {
-                            Long basicId = userConfirmed.getBasicWordId();
                             int todayAddNewWord = todayOldWord - userWordListLength;
-                            List<Word> wordList = wordService.findTopNFromBasicId(todayAddNewWord + 1, basicId);
+                            List<Word> wordList = wordService.findTopNFromBasicId(todayAddNewWord + 1, basicIdSet);
                             int wordListLength = wordList.size() - 1;
                             for (int i = 0; i < wordListLength; i++) {
                                 wordService.saveUserWord(userConfirmed, wordList.get(i));
@@ -117,7 +122,7 @@ public class UserController {
                     }
                 }
                 System.out.print("hhhhh");
-                userService.updateLastLoginDateByUserTele(new Date(), userConfirmed.getUserTele());
+                userService.updateLastLoginDateByUserTele(new Date(), userTeleConfirmed);
             }
 
             // 生成Token

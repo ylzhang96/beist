@@ -1,11 +1,10 @@
 package com.beist.service;
 
-import com.beist.entity.User;
-import com.beist.entity.UserWord;
-import com.beist.entity.Word;
+import com.beist.entity.*;
 import com.beist.vo.WordTestVO;
 
 import java.util.List;
+import java.util.Map;
 
 public interface WordService {
     List<Word> fuzzySearchWord(String fuzzyWordName);
@@ -25,5 +24,9 @@ public interface WordService {
     int countUnReciteOldWord(Long userId, String userLevel);
     void updateWordWrongCount(Long userId, Long wordId);
     List<UserWord> findUnReciteOldWordList(Long userId, int n, String userLevel);
+    /**********************************************/
 
+    Word findByWord(String word);
+    ArticleWord saveArticleWord(Article article, Word word, Map.Entry<String, Integer> id);
+    UserWord save(UserWord userword);
 }

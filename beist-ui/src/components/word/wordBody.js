@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Button, Col, Grid, Jumbotron, Modal, Row} from "react-bootstrap";
 
 class WordBody extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -26,11 +25,11 @@ class WordBody extends Component {
             },
             wordNum: 0,
             wordNumPerDay: 10,
-            userPlanWordCount : 0,
+            userPlanWordCount: 0,
             allUserWordCount: 0,
-            todayUserWordCount : 0,
+            todayUserWordCount: 0,
             todayUserHasCount: 0,
-            rate : 0
+            rate: 0
         }
     }
 
@@ -49,11 +48,11 @@ class WordBody extends Component {
             console.log('parsed json', json)
             if (json.status === 0) {
                 this.setState({
-                    userPlanWordCount : json.userPlanWordCount,
+                    userPlanWordCount: json.userPlanWordCount,
                     allUserWordCount: json.result.allUserWordCount,
-                    todayUserWordCount : json.result.todayUserWordCount,
+                    todayUserWordCount: json.result.todayUserWordCount,
                     todayUserHasCount: json.result.todayUserHasCount,
-                    rate : json.result.rate
+                    rate: json.result.rate
                 });
             } else {
                 // let errorMessage = json.result.errorMessage;
@@ -64,13 +63,19 @@ class WordBody extends Component {
         })
     }
 
+
     openWordModal(number) {
-        // console.log(this.state.wordIdList[number]);
-        this.getWordByWordId(number);
-        this.setState({
-            showWordModal: true,
-            showWordDetailModal: false
-        })
+        if(this.state.wordIdList.length !== 0) {
+            // console.log(this.state.wordIdList[number]);
+            this.getWordByWordId(number);
+            this.setState({
+                showWordModal: true,
+                showWordDetailModal: false
+            })
+        } else {
+            alert("背完啦！")
+        }
+
     }
 
     openWordDetailModal() {
@@ -80,18 +85,22 @@ class WordBody extends Component {
         })
     }
 
+
     closeWordModal() {
         this.setState({
             showWordModal: false,
-            wordNum: -1,
+            wordNum: 0
         })
+        window.location.href="/word"
     }
+
 
     closeWordDetailModal() {
         this.setState({
             showWordDetailModal: false,
-            wordNum: -1,
+            wordNum: 0,
         })
+        window.location.href="/word"
     }
 
     wordKnow() {
@@ -115,7 +124,7 @@ class WordBody extends Component {
             return response.json()
         }).then((json) => {
             console.log('parsed json', json)
-            if (json.status > 0) {
+            if (json.status >= 0) {
                 let wordNumPerDay = json.status;
                 for (let i = 0; i < wordNumPerDay; i++) {
                     this.setState({
@@ -137,6 +146,7 @@ class WordBody extends Component {
             console.log('parsing failed', ex)
         })
     }
+
 
     getWordByWordId(number) {
         // console.log(this.state.wordNum);
@@ -174,7 +184,7 @@ class WordBody extends Component {
             }
             else {
                 let errorMessage = json.message;
-                alert(errorMessage);
+                // alert(errorMessage);
                 if (errorMessage === '您没有权限，请登录') {
                     window.location.href = '/';
                 }
@@ -183,6 +193,7 @@ class WordBody extends Component {
             console.log('parsing failed', ex)
         })
     }
+
 
     wordUnknown() {
         let num = this.state.showWordInfo.wordShowDetailNum;
@@ -240,7 +251,7 @@ class WordBody extends Component {
             }).then(function (response) {
                 return response.json()
             }).then((json) => {
-                console.log('parsed json', json)
+                console.log('parsed json', json);
                 if (json.status === 0) {
                     // https://segmentfault.com/q/1010000002992310
                     this.setState({
@@ -250,7 +261,7 @@ class WordBody extends Component {
                 }
                 else {
                     let errorMessage = json.message;
-                    alert(errorMessage);
+                    // alert(errorMessage);
                     if (errorMessage === '您没有权限，请登录') {
                         window.location.href = '/';
                     }
@@ -259,12 +270,20 @@ class WordBody extends Component {
                 console.log('parsing failed', ex)
             });
         }
-
         console.log(this.state.wordIdList);
         // console.log(this.state.wordIdList.length);
-        let number = Math.floor(Math.random() * this.state.wordIdList.length)
-        console.log(number);
-        this.openWordModal(number);
+        if(this.state.wordIdList.length !== 0) {
+            let number = Math.floor(Math.random() * this.state.wordIdList.length)
+            console.log(number);
+            this.openWordModal(number);
+        } else {
+            alert("背完啦！");
+            this.setState({
+                showWordModal: false,
+                showWordDetailModal: false
+            })
+        }
+
     }
 
     exitKnow() {
@@ -273,6 +292,7 @@ class WordBody extends Component {
     }
 
     render() {
+
         return (
             <div>
                 <div className="container">
@@ -291,8 +311,7 @@ class WordBody extends Component {
                                 <Col sm={3}>
                                     <h4>今日需背</h4>
                                 </Col>
-                                <Col sm={3}>
-                                    <h4>{this.state.todayUserWordCount} 个</h4>
+                                <Col sm={3}><h4>{this.state.todayUserWordCount} 个</h4>
                                 </Col>
                             </Row>
                             <Row>
@@ -305,8 +324,7 @@ class WordBody extends Component {
                                 <Col sm={3}>
                                     <h4>背诵进度</h4>
                                 </Col>
-                                <Col sm={3}>
-                                    <h4>{this.state.rate} %</h4>
+                                <Col sm={3}><h4>{this.state.rate} %</h4>
                                 </Col>
                             </Row>
                             <Row className="padBot2Class padTop3Class">
@@ -337,7 +355,6 @@ class WordBody extends Component {
                         <Button block onClick={this.wordUnknown.bind(this)}>{this.state.unKnownText}</Button>
                     </Modal.Footer>
                 </Modal>
-
                 <Modal className="WordDetailModal" show={this.state.showWordDetailModal}
                        onHide={this.closeWordDetailModal.bind(this)}>
                     <Modal.Header closeButton>

@@ -1,6 +1,5 @@
 package com.beist.restful;
 
-import com.beist.dao.UserWordRepository;
 import com.beist.entity.User;
 import com.beist.entity.UserWord;
 import com.beist.entity.Word;

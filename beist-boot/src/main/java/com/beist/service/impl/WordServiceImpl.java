@@ -1,10 +1,9 @@
 package com.beist.service.impl;
 
+import com.beist.dao.ArticleWordRepository;
 import com.beist.dao.UserWordRepository;
 import com.beist.dao.WordRepository;
-import com.beist.entity.User;
-import com.beist.entity.UserWord;
-import com.beist.entity.Word;
+import com.beist.entity.*;
 import com.beist.service.WordService;
 import com.beist.vo.WordTestVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class WordServiceImpl implements WordService {
@@ -23,6 +23,10 @@ public class WordServiceImpl implements WordService {
 
     @Autowired
     private UserWordRepository userWordRepository;
+
+    /************************************************/
+    @Autowired
+    private ArticleWordRepository articleWordRespository;
 
     @Override
     public UserWord saveUserWord(User user, Word word) {
@@ -203,5 +207,34 @@ public class WordServiceImpl implements WordService {
             return list;
         else
             return list.subList(0, n);
+    }
+
+    /*******************************************************/
+
+    @Override
+    public Word findByWord(String word) {
+        return wordRepository.findByWord(word);
+    }
+
+
+    /*****************************************************/
+    @Override
+    public ArticleWord saveArticleWord(Article article, Word word, Map.Entry<String, Integer> id) {
+        ArticleWord articleWordOld = articleWordRespository.findByArticleAndWordAndArticleWord(article,word,id.getKey());
+        if (articleWordOld == null ) {
+            ArticleWord articleWord = new ArticleWord();
+            articleWord.setArticle(article);
+            articleWord.setWord(word);
+            articleWord.setArticleWord(id.getKey());
+            articleWord.setWordCount(id.getValue());
+            return articleWordRespository.save(articleWord);
+        } else {
+            return null;
+        }
+    }
+
+    /****************************************************/
+    public UserWord save(UserWord userword){
+        return userWordRepository.save(userword);
     }
 }
