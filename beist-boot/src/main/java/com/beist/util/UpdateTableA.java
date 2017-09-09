@@ -38,7 +38,7 @@ public class UpdateTableA {
         InputStream is = null;
         InputStream article_file = null;
         try {
-            String articlePath ="C:/ylzhang/beist/beist-spider/Articles/";
+            String articlePath = PathConstants.ARTICLE_PATH;
             is = new FileInputStream(articlePath+"result.txt");
             BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
             // 读取一行，存储于字符串列表中

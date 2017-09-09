@@ -19,4 +19,6 @@ public interface ArticleService {
     List<Article> findArticleListByArticleLevel(String articleLevel);
 
     List<UserArticle> findUserArticlesByUser(Long userId);
+
+    Article findArticleByArticleId(Long articleId);
 }

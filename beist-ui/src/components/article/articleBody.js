@@ -11,14 +11,15 @@ class ArticleBody extends Component {
             activeAllRecoNum: 10,  // 数据库所有文章除以5
             activeALLNewNum: 2,   // 所有待读除以5
             newestArticleListNum: 5,  // 一般为5，小于5再说
+            RecoArticleIdList: [],
+            RecoArticleTitleList: [],
+            UserArticleIdList: [],
+            UserArticleTitleList: [],
             bestRecoArticle: {
-                articleName: 'Japanese police confirm body of missing Chinese teacher found',
-                articleLevel: '雅思',
-                articleNum: 358,
-                articleAbstract: 'A DNA test of the skeletal remains of a young woman ' +
-                'confirmed that they belonged to Wei Qiujie, a Chinese teacher ' +
-                'missing in Japan\'s northernmost region Hokkaido since July 23, ' +
-                'according to the Chinese consulate-general in Sapporo on Wednesday. '
+                articleName: '',
+                articleLevel: '',
+                articleNum: 0,
+                articleAbstract: ''
             },
             chosenArticle: {
                 articleName: '',
@@ -26,22 +27,106 @@ class ArticleBody extends Component {
                 articleNum: 0,
                 article: ''
             },
-            best5RecoArticleList: [
-                'Tech firm fined over \'comfort women\' emoticon',
-                'Smiling pig goes viral after flood rescue',
-                'China not on the first list of McDonald\'s antibiotics cut',
-                'Death toll rises to 3 after landslide in Southwest China',
-                'Haidilao announces clean-up plans after mice infestation exposed'],
-
-            newestArticleList: [
-                'Urgent: China confirms India\'s withdrawal of border personnel at face-off site at Doklam',
-                'Japanese police confirm body of missing Chinese teacher found',
-                'New rules ban forum tinkering',
-                '17 killed, damage widespread in wake of Typhoon Hato',
-                'Apple now supports WeChat payment'
-            ],
+            best5RecoArticleList: [],
+            newestArticleList: [],
             showArticleDetailModal: false
         }
+    }
+
+    componentWillMount() {
+        fetch("/api/article/getArticleList", {
+            method: "POST",
+            headers: {
+                'Cache-Control': 'no-cache',
+                'Content-Type': 'application/json',
+                'token': localStorage.getItem("token"),
+                'userTele': localStorage.getItem("userTele")
+            }
+        }).then(function (response) {
+            return response.json()
+        }).then((json) => {
+            console.log('parsed json', json)
+            if (json.status > 0) {
+                this.setState({
+                    RecoArticleIdList: json.result.articleIdList,
+                    RecoArticleTitleList: json.result.articleTitleList
+                });
+                if (json.status > 1) {
+                    let length = this.state.RecoArticleIdList.length;
+                    for (let i = 1; i < length; i++) {
+                        this.setState({
+                            best5RecoArticleList: this.state.best5RecoArticleList.concat(this.state.RecoArticleTitleList[i])
+                        })
+                    }
+                }
+                fetch("/api/article/getArticleInfoByArticleId", {
+                    method: "POST",
+                    headers: {
+                        'Cache-Control': 'no-cache',
+                        'Content-Type': 'application/json',
+                        'token': localStorage.getItem("token"),
+                        'userTele': localStorage.getItem("userTele"),
+                        'articleId': this.state.RecoArticleIdList[0],
+                    }
+                }).then(function (response) {
+                    return response.json()
+                }).then((json) => {
+                    console.log('parsed json', json)
+                    if (json.status === 0) {
+                        this.setState({
+                            bestRecoArticle: {
+                                articleName: json.result.articleName,
+                                articleLevel: json.result.articleLevel,
+                                articleNum: json.result.articleNum,
+                                articleAbstract: json.result.articleAbstract
+                            },
+                        });
+                    } else {
+                        // let errorMessage = json.result.errorMessage;
+                        // alert(errorMessage);
+                    }
+                }).catch(function (ex) {
+                    console.log('parsing failed', ex)
+                })
+            } else {
+                // let errorMessage = json.result.errorMessage;
+                // alert(errorMessage);
+            }
+        }).catch(function (ex) {
+            console.log('parsing failed', ex)
+        })
+        fetch("/api/article/getUserArticleList", {
+            method: "POST",
+            headers: {
+                'Cache-Control': 'no-cache',
+                'Content-Type': 'application/json',
+                'token': localStorage.getItem("token"),
+                'userTele': localStorage.getItem("userTele")
+            }
+        }).then(function (response) {
+            return response.json()
+        }).then((json) => {
+            console.log('parsed json', json);
+            if (json.status === 0) {
+                this.setState({
+                    UserArticleIdList: json.result.articleIdList,
+                    UserArticleTitleList: json.result.articleTitleList
+                });
+                if (json.status > 0) {
+                    let length = this.state.UserArticleIdList.length;
+                    for (let i = 1; i < length; i++) {
+                        this.setState({
+                            newestArticleList: this.state.newestArticleList.concat(this.state.UserArticleTitleList[i])
+                        })
+                    }
+                }
+            } else {
+                // let errorMessage = json.result.errorMessage;
+                // alert(errorMessage);
+            }
+        }).catch(function (ex) {
+            console.log('parsing failed', ex)
+        })
     }
 
     showArticleDetailModal(num) {
@@ -162,39 +247,39 @@ class ArticleBody extends Component {
                     </Row>
 
 
-
-                        <Row className="padTop3Class">
-                            <Col sm={12} md={6}>
-                                <Pagination
-                                    prev
-                                    next
-                                    first
-                                    last
-                                    ellipsis
-                                    boundaryLinks
-                                    items={this.state.activeAllRecoNum}
-                                    maxButtons={5}
-                                    activePage={this.state.activeRecoPage}
-                                    onSelect={this.handleRecoSelect.bind(this)}/>
-                            </Col>
-                            <Col sm={12} md={6}>
-                                <Pagination
-                                    prev
-                                    next
-                                    first
-                                    last
-                                    ellipsis
-                                    boundaryLinks
-                                    items={this.state.activeALLNewNum}
-                                    maxButtons={5}
-                                    activePage={this.state.activeNewPage}
-                                    onSelect={this.handleNewSelect.bind(this)}/>
-                            </Col>
-                        </Row>
+                        {/*<Row className="padTop3Class">*/}
+                        {/*<Col sm={12} md={6}>*/}
+                        {/*<Pagination*/}
+                        {/*prev*/}
+                        {/*next*/}
+                        {/*first*/}
+                        {/*last*/}
+                        {/*ellipsis*/}
+                        {/*boundaryLinks*/}
+                        {/*items={this.state.activeAllRecoNum}*/}
+                        {/*maxButtons={5}*/}
+                        {/*activePage={this.state.activeRecoPage}*/}
+                        {/*onSelect={this.handleRecoSelect.bind(this)}/>*/}
+                        {/*</Col>*/}
+                        {/*<Col sm={12} md={6}>*/}
+                        {/*<Pagination*/}
+                        {/*prev*/}
+                        {/*next*/}
+                        {/*first*/}
+                        {/*last*/}
+                        {/*ellipsis*/}
+                        {/*boundaryLinks*/}
+                        {/*items={this.state.activeALLNewNum}*/}
+                        {/*maxButtons={5}*/}
+                        {/*activePage={this.state.activeNewPage}*/}
+                        {/*onSelect={this.handleNewSelect.bind(this)}/>*/}
+                        {/*</Col>*/}
+                        {/*</Row>*/}
                     </Grid>
                 </div>
                 <Modal className="ArticleDetailModal" show={this.state.showArticleDetailModal}
-                       onHide={this.closeArticleDetailModal.bind(this)} bsSize="large" aria-labelledby="contained-modal-title-lg">
+                       onHide={this.closeArticleDetailModal.bind(this)} bsSize="large"
+                       aria-labelledby="contained-modal-title-lg">
                     <Modal.Header closeButton>
                         <Modal.Title><h3 className="text-center">{this.state.chosenArticle.articleName}</h3>
                         </Modal.Title>

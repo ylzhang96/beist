@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>tomcat</groupId>
+    <artifactId>tomcat-parent</artifactId>
+    <version>5.5.23</version>
+  </parent>
+
+  <!-- [MPG] POM Created by Mergere Pom Generator (beta). -->
+  <artifactId>jsp-api</artifactId>
+  <version>5.5.23</version>
+  <packaging>jar</packaging>
+  <name>Java API for JavaServer Pages</name>
+  <description>Java API for JavaServer Pages, specification version 2.0</description>
+  <dependencies>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.4</version>
+    </dependency>
+  </dependencies>
+</project>

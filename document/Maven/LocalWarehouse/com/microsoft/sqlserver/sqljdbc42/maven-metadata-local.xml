@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.microsoft.sqlserver</groupId>
+  <artifactId>sqljdbc42</artifactId>
+  <versioning>
+    <release>4.2</release>
+    <versions>
+      <version>4.2</version>
+    </versions>
+    <lastUpdated>20170824165443</lastUpdated>
+  </versioning>
+</metadata>

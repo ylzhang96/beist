@@ -21,4 +21,6 @@ public interface ArticleRepository extends CrudRepository<Article, Long> {
     @Query(value = "select * from A where article_level = :articleLevel",nativeQuery = true)
     List<Article> findArticleListByArticleLevel(@Param("articleLevel") String articleLevel);
 
+    Article findArticleByArticleId(Long articleId);
+
 }

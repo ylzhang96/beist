@@ -48,4 +48,9 @@ public class ArticleServiceImpl implements ArticleService{
         return userarticleRepository.findUserArticlesByUser(userId);
     }
 
+    @Override
+    public Article findArticleByArticleId(Long articleId) {
+        return articleRepository.findArticleByArticleId(articleId);
+    }
+
 }
