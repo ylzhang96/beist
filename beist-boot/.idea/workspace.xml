@@ -2,17 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b56a142d-00fe-4823-a1cf-1bc646d55c42" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/beist/util/PathConstants.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../document/A2-2014级夏季学期项目小组名单.xls" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../document/A5-学生-教师+项目指导见面+考勤表.xls" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../document/模板.pptx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../document/模板1.pptx" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/beist/dao/ArticleWordRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/beist/dao/ArticleWordRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/beist/dao/UserArticleRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/beist/dao/UserArticleRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/beist/restful/ArticleController.class" afterPath="$PROJECT_DIR$/target/classes/com/beist/restful/ArticleController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/beist/service/ArticleService.class" afterPath="$PROJECT_DIR$/target/classes/com/beist/service/ArticleService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/beist/service/WordService.class" afterPath="$PROJECT_DIR$/target/classes/com/beist/service/WordService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/beist/service/impl/ArticleServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/beist/service/impl/ArticleServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/beist/service/impl/WordServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/beist/service/impl/WordServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/beist/dao/ArticleRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/beist/dao/ArticleRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/beist/dao/ArticleWordRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/beist/dao/ArticleWordRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/beist/dao/UserArticleRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/beist/dao/UserArticleRepository.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/beist/restful/ArticleController.java" afterPath="$PROJECT_DIR$/src/main/java/com/beist/restful/ArticleController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/beist/service/ArticleService.java" afterPath="$PROJECT_DIR$/src/main/java/com/beist/service/ArticleService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/beist/service/WordService.java" afterPath="$PROJECT_DIR$/src/main/java/com/beist/service/WordService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/beist/service/impl/ArticleServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/beist/service/impl/ArticleServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/beist/util/UpdateTableA.java" afterPath="$PROJECT_DIR$/src/main/java/com/beist/util/UpdateTableA.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/beist/service/impl/WordServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/beist/service/impl/WordServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../beist-ui/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/components/aboutBody.js" afterPath="$PROJECT_DIR$/../beist-ui/src/components/aboutBody.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/components/article/articleBody.js" afterPath="$PROJECT_DIR$/../beist-ui/src/components/article/articleBody.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/components/article/articleJumbotron.js" afterPath="$PROJECT_DIR$/../beist-ui/src/components/article/articleJumbotron.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/components/indexBody.js" afterPath="$PROJECT_DIR$/../beist-ui/src/components/indexBody.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/components/indexFooter.js" afterPath="$PROJECT_DIR$/../beist-ui/src/components/indexFooter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/pages/about.js" afterPath="$PROJECT_DIR$/../beist-ui/src/pages/about.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/pages/index.js" afterPath="$PROJECT_DIR$/../beist-ui/src/pages/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../beist-ui/src/styles/css/style.css" afterPath="$PROJECT_DIR$/../beist-ui/src/styles/css/style.css" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -26,23 +39,31 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="UserArticleRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/dao/UserArticleRepository.java">
+      <file leaf-file-name="UserArticle.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/entity/UserArticle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-              <folding>
-                <marker date="1504895105910" expanded="true" signature="420:480" ph="select * fro... UA" />
-              </folding>
+            <state relative-caret-position="-180">
+              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ArticleServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/service/impl/ArticleServiceImpl.java">
+      <file leaf-file-name="Article.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/entity/Article.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="52" column="67" lean-forward="false" selection-start-line="52" selection-start-column="67" selection-end-line="52" selection-end-column="67" />
+            <state relative-caret-position="-253">
+              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArticleWord.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/entity/ArticleWord.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="99">
+              <caret line="29" column="20" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -51,55 +72,102 @@
       <file leaf-file-name="ArticleController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/restful/ArticleController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="64" column="22" lean-forward="true" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="40" />
+            <state relative-caret-position="405">
+              <caret line="156" column="19" lean-forward="false" selection-start-line="156" selection-start-column="19" selection-end-line="156" selection-end-column="19" />
               <folding>
-                <element signature="e#5462#5470#0" expanded="true" />
+                <element signature="e#10285#10293#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <file leaf-file-name="UserWordRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/dao/UserWordRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PathConstants.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/util/PathConstants.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ArticleRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/dao/ArticleRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="51" />
+            <state relative-caret-position="-39">
+              <caret line="34" column="95" lean-forward="false" selection-start-line="34" selection-start-column="95" selection-end-line="34" selection-end-column="95" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1504914831072" expanded="true" signature="688:739" ph="select * fro... A" />
+                <marker date="1504834504510" expanded="true" signature="594:655" ph="select * fro... UW" />
+                <marker date="1504834504510" expanded="true" signature="780:816" ph="select * fro... UW" />
+                <marker date="1504834504510" expanded="true" signature="918:1025" ph="update UW se... " />
+                <marker date="1504834504510" expanded="true" signature="1178:1322" ph="select count... UW" />
+                <marker date="1504834504510" expanded="true" signature="1481:1542" ph="select * fro... UW" />
+                <marker date="1504834504510" expanded="true" signature="1705:1786" ph="select count... UW" />
+                <marker date="1504834504510" expanded="true" signature="1948:2030" ph="select count... UW" />
+                <marker date="1504834504510" expanded="true" signature="2157:2337" ph="select * fro... UW" />
+                <marker date="1504834504510" expanded="true" signature="2533:2609" ph="update UW se... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ArticleService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/service/ArticleService.java">
+      <file leaf-file-name="UserArticleRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/dao/UserArticleRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="22" column="51" lean-forward="false" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
+            <state relative-caret-position="322">
+              <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+              <folding>
+                <marker date="1504928387293" expanded="true" signature="483:543" ph="select * fro... UA" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WordService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/service/WordService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="237">
+              <caret line="31" column="20" lean-forward="false" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArticleWordRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/dao/ArticleWordRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="25" column="83" lean-forward="false" selection-start-line="25" selection-start-column="83" selection-end-line="25" selection-end-column="83" />
+              <folding>
+                <marker date="1504930360966" expanded="true" signature="705:867" ph="select top 1... AW" />
+                <marker date="1504930360966" expanded="true" signature="816:866" ph="select UW.wo... UW" />
+                <marker date="1504930360966" expanded="true" signature="1068:1220" ph="select * fro... AW" />
+                <marker date="1504930360966" expanded="true" signature="1169:1219" ph="select UW.wo... UW" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WordServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/service/impl/WordServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="158">
+              <caret line="240" column="27" lean-forward="false" selection-start-line="240" selection-start-column="27" selection-end-line="240" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#testLevelWordList#0;class#WordServiceImpl#0" expanded="false" />
+                <element signature="e#7976#7977#0" expanded="true" />
+                <element signature="e#8032#8033#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/restful/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1311">
+              <caret line="231" column="43" lean-forward="true" selection-start-line="231" selection-start-column="28" selection-end-line="231" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#911#912#0" expanded="true" />
+                <element signature="e#955#956#0" expanded="true" />
+                <element signature="method#modifyNickName#0;class#UserController#0" expanded="false" />
+                <element signature="method#jwtCheck#0;class#UserController#0" expanded="false" />
+                <element signature="method#modifyLevel#0;class#UserController#0" expanded="false" />
+                <element signature="method#testLevel#0;class#UserController#0" expanded="false" />
+                <element signature="method#addUser#0;class#UserController#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -150,15 +218,16 @@
         <option value="$PROJECT_DIR$/src/main/java/com/beist/dao/UserWordRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beist/restful/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beist/dao/WordRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beist/service/WordService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beist/service/impl/WordServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beist/restful/WordController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beist/dao/ArticleWordRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beist/util/PathConstants.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beist/util/UpdateTableA.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beist/dao/ArticleRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beist/service/ArticleService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beist/dao/UserArticleRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beist/service/impl/ArticleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beist/service/ArticleService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beist/dao/ArticleWordRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beist/service/impl/WordServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beist/service/WordService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beist/restful/ArticleController.java" />
       </list>
     </option>
@@ -915,12 +984,12 @@
       <workItem from="1504255441038" duration="9533000" />
       <workItem from="1504283627330" duration="27311000" />
       <workItem from="1504464728623" duration="5861000" />
-      <workItem from="1504599323579" duration="97031000" />
+      <workItem from="1504599323579" duration="104271000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139736000" />
+    <option name="totallyTimeSpent" value="146976000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
@@ -944,7 +1013,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28649837" sideWeight="0.6692708" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14379802" sideWeight="0.6692708" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17447917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1087,27 +1156,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/service/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="891">
-          <caret line="77" column="5" lean-forward="true" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#login#0;class#UserServiceImpl#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="511">
@@ -1142,25 +1190,6 @@
             <marker date="1504898364889" expanded="true" signature="1438:1495" ph="select top 4... W" />
             <marker date="1504898364889" expanded="true" signature="1637:1707" ph="select top 1... W" />
             <marker date="1504898364889" expanded="true" signature="1911:1988" ph="select top *... W" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/dao/UserWordRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="34" column="95" lean-forward="false" selection-start-line="34" selection-start-column="95" selection-end-line="34" selection-end-column="95" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1504834504510" expanded="true" signature="594:655" ph="select * fro... UW" />
-            <marker date="1504834504510" expanded="true" signature="780:816" ph="select * fro... UW" />
-            <marker date="1504834504510" expanded="true" signature="918:1025" ph="update UW se... " />
-            <marker date="1504834504510" expanded="true" signature="1178:1322" ph="select count... UW" />
-            <marker date="1504834504510" expanded="true" signature="1481:1542" ph="select * fro... UW" />
-            <marker date="1504834504510" expanded="true" signature="1705:1786" ph="select count... UW" />
-            <marker date="1504834504510" expanded="true" signature="1948:2030" ph="select count... UW" />
-            <marker date="1504834504510" expanded="true" signature="2157:2337" ph="select * fro... UW" />
-            <marker date="1504834504510" expanded="true" signature="2533:2609" ph="update UW se... " />
           </folding>
         </state>
       </provider>
@@ -1207,53 +1236,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/service/WordService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="30" column="37" lean-forward="false" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../beist-boot0909-2/beist-boot/src/main/java/com/beist/util/UpdateTableA.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/restful/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="38" column="5" lean-forward="true" selection-start-line="34" selection-start-column="4" selection-end-line="38" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#911#912#0" expanded="true" />
-            <element signature="e#955#956#0" expanded="true" />
-            <element signature="method#modifyNickName#0;class#UserController#0" expanded="false" />
-            <element signature="method#jwtCheck#0;class#UserController#0" expanded="false" />
-            <element signature="method#modifyLevel#0;class#UserController#0" expanded="false" />
-            <element signature="method#testLevel#0;class#UserController#0" expanded="false" />
-            <element signature="method#addUser#0;class#UserController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/dao/ArticleWordRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <marker date="1504902746630" expanded="true" signature="748:909" ph="select top 1... AW" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/entity/Article.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-391">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1282,60 +1268,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/dao/UserArticleRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-          <folding>
-            <marker date="1504895105910" expanded="true" signature="420:480" ph="select * fro... UA" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/util/UpdateTableA.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="40" column="60" lean-forward="false" selection-start-line="40" selection-start-column="60" selection-end-line="40" selection-end-column="60" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/restful/WordController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-138">
-          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding>
-            <element signature="method#wordFuzzySearch#0;class#WordController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/service/impl/WordServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="229" column="0" lean-forward="false" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#testLevelWordList#0;class#WordServiceImpl#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/entity/ArticleWord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="29" column="20" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/entity/UserArticle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1350,31 +1289,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/service/ArticleService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/util/PathConstants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="22" column="51" lean-forward="false" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/service/impl/ArticleServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="52" column="67" lean-forward="false" selection-start-line="52" selection-start-column="67" selection-end-line="52" selection-end-column="67" />
+        <state relative-caret-position="46">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/restful/ArticleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="64" column="22" lean-forward="true" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="40" />
-          <folding>
-            <element signature="e#5462#5470#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1386,11 +1305,169 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/util/PathConstants.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/service/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="1058">
+          <caret line="77" column="5" lean-forward="true" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#login#0;class#UserServiceImpl#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/restful/WordController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-263">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="method#wordFuzzySearch#0;class#WordController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/service/impl/ArticleServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="57" column="28" lean-forward="false" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
+          <folding>
+            <element signature="e#1883#1884#0" expanded="true" />
+            <element signature="e#1945#1946#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/service/ArticleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-550">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/entity/UserArticle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/entity/Article.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-253">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/entity/ArticleWord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="29" column="20" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/dao/UserWordRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-39">
+          <caret line="34" column="95" lean-forward="false" selection-start-line="34" selection-start-column="95" selection-end-line="34" selection-end-column="95" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1504834504510" expanded="true" signature="594:655" ph="select * fro... UW" />
+            <marker date="1504834504510" expanded="true" signature="780:816" ph="select * fro... UW" />
+            <marker date="1504834504510" expanded="true" signature="918:1025" ph="update UW se... " />
+            <marker date="1504834504510" expanded="true" signature="1178:1322" ph="select count... UW" />
+            <marker date="1504834504510" expanded="true" signature="1481:1542" ph="select * fro... UW" />
+            <marker date="1504834504510" expanded="true" signature="1705:1786" ph="select count... UW" />
+            <marker date="1504834504510" expanded="true" signature="1948:2030" ph="select count... UW" />
+            <marker date="1504834504510" expanded="true" signature="2157:2337" ph="select * fro... UW" />
+            <marker date="1504834504510" expanded="true" signature="2533:2609" ph="update UW se... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/dao/UserArticleRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+          <folding>
+            <marker date="1504928387293" expanded="true" signature="483:543" ph="select * fro... UA" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/service/impl/WordServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="240" column="27" lean-forward="false" selection-start-line="240" selection-start-column="27" selection-end-line="240" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#testLevelWordList#0;class#WordServiceImpl#0" expanded="false" />
+            <element signature="e#7976#7977#0" expanded="true" />
+            <element signature="e#8032#8033#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/service/WordService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="31" column="20" lean-forward="false" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/dao/ArticleWordRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="25" column="83" lean-forward="false" selection-start-line="25" selection-start-column="83" selection-end-line="25" selection-end-column="83" />
+          <folding>
+            <marker date="1504930360966" expanded="true" signature="705:867" ph="select top 1... AW" />
+            <marker date="1504930360966" expanded="true" signature="816:866" ph="select UW.wo... UW" />
+            <marker date="1504930360966" expanded="true" signature="1068:1220" ph="select * fro... AW" />
+            <marker date="1504930360966" expanded="true" signature="1169:1219" ph="select UW.wo... UW" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/restful/ArticleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="156" column="19" lean-forward="false" selection-start-line="156" selection-start-column="19" selection-end-line="156" selection-end-column="19" />
+          <folding>
+            <element signature="e#10285#10293#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beist/restful/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1311">
+          <caret line="231" column="43" lean-forward="true" selection-start-line="231" selection-start-column="28" selection-end-line="231" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#911#912#0" expanded="true" />
+            <element signature="e#955#956#0" expanded="true" />
+            <element signature="method#modifyNickName#0;class#UserController#0" expanded="false" />
+            <element signature="method#jwtCheck#0;class#UserController#0" expanded="false" />
+            <element signature="method#modifyLevel#0;class#UserController#0" expanded="false" />
+            <element signature="method#testLevel#0;class#UserController#0" expanded="false" />
+            <element signature="method#addUser#0;class#UserController#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

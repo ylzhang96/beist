@@ -7,7 +7,7 @@ class Index extends Component {
 
     render() {
         return (
-            <div>
+            <div className="padTop2Class">
                 <IndexBody/>
                 <IndexFooter/>
             </div>

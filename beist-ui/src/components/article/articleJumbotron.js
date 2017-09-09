@@ -2,6 +2,47 @@ import React, {Component} from 'react';
 import {Button, Col, Grid, Jumbotron, Row} from "react-bootstrap";
 
 class ArticleJumbotron extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            wordRemindingNum :0,
+            preparingNum : 0,
+            hasReadNum:0,
+            rate:0
+        }
+
+    }
+
+    componentWillMount() {
+        fetch("/api/article/countArticle", {
+            method: "POST",
+            headers: {
+                'Cache-Control': 'no-cache',
+                'Content-Type': 'application/json',
+                'token': localStorage.getItem("token"),
+                'userTele': localStorage.getItem("userTele")
+            }
+        }).then(function (response) {
+            return response.json()
+        }).then((json) => {
+            console.log('parsed json', json)
+            if (json.status === 0) {
+                this.setState({
+                    wordRemindingNum : json.result.wordRemindingNum,
+                    preparingNum : json.result.preparingNum,
+                    hasReadNum:json.result.hasReadNum,
+                    rate:json.result.rate
+                });
+            } else {
+                // let errorMessage = json.result.errorMessage;
+                // alert(errorMessage);
+            }
+        }).catch(function (ex) {
+            console.log('parsing failed', ex)
+        })
+    }
+
     render() {
         return (
             <div>
@@ -12,26 +53,26 @@ class ArticleJumbotron extends Component {
                         </Row>
                         <Row className="padTop2Class">
                             <Col sm={6}>
-                                <h4>今日已读</h4>
+                                <h4>熟悉单词</h4>
                             </Col>
                             <Col sm={6}>
-                                <h4>2 篇</h4>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col sm={6}>
-                                <h4>待读文章</h4>
-                            </Col>
-                            <Col sm={6}>
-                                <h4>12 篇</h4>
+                                <h4>{this.state.wordRemindingNum} 篇</h4>
                             </Col>
                         </Row>
                         <Row>
                             <Col sm={6}>
-                                <h4>总共已读</h4>
+                                <h4>准备阅读</h4>
                             </Col>
                             <Col sm={6}>
-                                <h4>145 篇</h4>
+                                <h4>{this.state.preparingNum} 篇</h4>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col sm={6}>
+                                <h4>已经阅读</h4>
+                            </Col>
+                            <Col sm={6}>
+                                <h4>{this.state.hasReadNum} 篇</h4>
                             </Col>
                         </Row>
                         <Row>
@@ -39,7 +80,7 @@ class ArticleJumbotron extends Component {
                                 <h4>阅读进度</h4>
                             </Col>
                             <Col sm={6}>
-                                <h4>15 %</h4>
+                                <h4>{this.state.rate} %</h4>
                             </Col>
                         </Row>
                         <Row className="padBot2Class padTop3Class">

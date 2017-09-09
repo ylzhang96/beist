@@ -237,4 +237,8 @@ public class WordServiceImpl implements WordService {
     public UserWord save(UserWord userword){
         return userWordRepository.save(userword);
     }
+
+    public List<ArticleWord> getWordListByArticleIdOutOfUW(Long articleId, Long userId) {
+        return articleWordRespository.getWordListByArticleIdOutOfUW(articleId, userId);
+    }
 }

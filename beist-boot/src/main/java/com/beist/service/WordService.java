@@ -29,4 +29,5 @@ public interface WordService {
     Word findByWord(String word);
     ArticleWord saveArticleWord(Article article, Word word, Map.Entry<String, Integer> id);
     UserWord save(UserWord userword);
+    List<ArticleWord> getWordListByArticleIdOutOfUW(Long articleId, Long userId);
 }

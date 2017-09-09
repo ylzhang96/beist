@@ -1,5 +1,7 @@
 package com.beist.dao;
 
+import com.beist.entity.Article;
+import com.beist.entity.User;
 import com.beist.entity.UserArticle;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -16,4 +18,8 @@ public interface UserArticleRepository extends CrudRepository<UserArticle, Long>
     // 返回待阅读文章列表
     @Query(value = "select * from UA where user_id_ = :userId and state <> '已阅读'",nativeQuery = true)
     List<UserArticle> findUserArticlesByUser(@Param("userId") Long userId);
+
+    UserArticle findByUserAndArticle(User user, Article article);
+
+
 }

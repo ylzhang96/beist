@@ -1,6 +1,7 @@
 package com.beist.service;
 
 import com.beist.entity.Article;
+import com.beist.entity.User;
 import com.beist.entity.UserArticle;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,4 +22,8 @@ public interface ArticleService {
     List<UserArticle> findUserArticlesByUser(Long userId);
 
     Article findArticleByArticleId(Long articleId);
+
+    UserArticle findByUserAndArticle(User user, Article article);
+
+    UserArticle save(UserArticle userArticle);
 }

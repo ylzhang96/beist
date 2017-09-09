@@ -32,6 +32,44 @@ public class ArticleController {
     @Autowired
     private UserController userController;
 
+    // 获取用户各阅读文章数量
+    @RequestMapping("/countArticle")
+    public String countArticle(@RequestHeader("token") String token, @RequestHeader("userTele") String userTele) {
+        Map<String, Integer> result = new HashMap<>();
+        JSONObject jsonObject = new JSONObject(userController.jwtCheck(token, userTele));
+        if (jsonObject.getInt("status") == 1) {
+            return JSONResult.fillResultString(JSONResult.STATUS_FAIL, "您没有权限，请登录", result);
+        }
+
+        // 获取用户的文章列表
+        User user = userService.findByUserTele(userTele);
+        List<UserArticle> userArticleList = articleService.findUserArticlesByUser(user.getUserId());
+
+        int wordRemindingNum = 0;
+        int preparingNum = 0;
+        int hasReadNum = 0;
+
+        for(UserArticle userArticle : userArticleList) {
+            String state = userArticle.getState();
+            if(state.equals("熟悉单词")) {
+                wordRemindingNum += 1;
+            } else if(state.equals("正在阅读")) {
+                preparingNum += 1;
+            } else if(state.equals("已阅读")) {
+                hasReadNum += 1;
+            }
+        }
+
+        int rate = hasReadNum * 100 / 235;
+
+        result.put("wordRemindingNum", wordRemindingNum);
+        result.put("preparingNum", preparingNum);
+        result.put("hasReadNum", hasReadNum);
+        result.put("rate", rate);
+        return JSONResult.fillResultString(JSONResult.STATUS_OK, JSONResult.MESSAGE_OK, result);
+
+    }
+
     // 获取用户推荐文章列表
     @RequestMapping("/getArticleList")
     public String getArticleList(@RequestHeader("token") String token, @RequestHeader("userTele") String userTele) {
@@ -90,6 +128,68 @@ public class ArticleController {
         result.put("articleIdList", articleIdList);
         result.put("articleTitleList", articleTitleList);
         return JSONResult.fillResultString(articleIdList.size(), JSONResult.MESSAGE_OK, result);
+    }
+
+    // 用户文章表没有或者用户单词表为熟悉单词，则返回单词列表
+    // 用户文章表显示准备阅读或者用户单词表显示已阅读，则返回文章列表
+    @RequestMapping("/getArticleListOrWordList")
+    public String getArticleListOrWordList(@RequestHeader("token") String token, @RequestHeader("userTele") String userTele,
+                                           @RequestHeader("articleId") String articleId) {
+        Map<String, List<String>> result = new HashMap<>();
+        JSONObject jsonObject = new JSONObject(userController.jwtCheck(token, userTele));
+        if (jsonObject.getInt("status") == 1) {
+            return JSONResult.fillResultString(-1, "您没有权限，请登录", result);
+        }
+        Long articleIdLong = Long.parseLong(articleId);
+        Article article = articleService.findArticleByArticleId(articleIdLong);
+        User user = userService.findByUserTele(userTele);
+        UserArticle userArticle = articleService.findByUserAndArticle(user, article);
+        if(userArticle == null) {
+            UserArticle userArticleNew = new UserArticle();
+            userArticleNew.setArticle(article);
+            userArticleNew.setUser(user);
+            userArticleNew.setState("熟悉单词");
+            UserArticle userArticle1 = articleService.save(userArticleNew);
+            List<String> wordIdList = new ArrayList<>();
+            List<ArticleWord> wordIdListLong = wordService.getWordListByArticleIdOutOfUW(userArticle1.getArticle().getArticleId(),
+                    userArticle1.getUser().getUserId());
+            for(ArticleWord wordIdLong : wordIdListLong) {
+                if(wordIdLong.getWord().getWordLevel().equals(user.getUserRange())) {
+                    String wordId = String.valueOf(wordIdLong.getWord().getWordId());
+                    wordIdList.add(wordId);
+                }
+
+            }
+            result.put("wordIdList", wordIdList);
+            return JSONResult.fillResultString(1, JSONResult.MESSAGE_OK, result);
+        } else if(userArticle.getState().equals("熟悉单词")) {
+            List<String> wordIdList = new ArrayList<>();
+            List<ArticleWord> wordIdListLong = wordService.getWordListByArticleIdOutOfUW(userArticle.getArticle().getArticleId(),
+                    userArticle.getUser().getUserId());
+            for(ArticleWord wordIdLong : wordIdListLong) {
+                if(wordIdLong.getWord().getWordLevel().equals(user.getUserRange())) {
+                    String wordId = String.valueOf(wordIdLong.getWord().getWordId());
+                    wordIdList.add(wordId);
+                }
+            }
+            result.put("wordIdList", wordIdList);
+            return JSONResult.fillResultString(1, JSONResult.MESSAGE_OK, result);
+        } else {
+            List<String> articleInfo = new ArrayList<>();
+            articleInfo.add(article.getArticleTitle());
+            articleInfo.add(article.getArticleLevel());
+            articleInfo.add(String.valueOf(article.getArticleWordNumber()));
+            result.put("articleInfo", articleInfo);
+            List<String> articleTotal;
+            try {
+                articleTotal = getArticle(article);
+                articleTotal = articleTotal.subList(1, articleTotal.size());
+                result.put("article", articleTotal);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return JSONResult.fillResultString(0, JSONResult.MESSAGE_OK, result);
+        }
     }
 
     @RequestMapping("/getArticleInfoByArticleId")
@@ -152,7 +252,7 @@ public class ArticleController {
 
     }
 
-*/
+    */
 
 
 

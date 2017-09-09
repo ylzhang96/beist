@@ -345,7 +345,7 @@ class IndexBody extends Component {
         return (
             <div>
                 <div className="container">
-                    <Grid className="padTop10Class">
+                    <Grid className="padTop5Class">
                         <Row>
                             <Col sm={12} md={6}>
                                 <Image src={BeistLogo} thumbnail/>
