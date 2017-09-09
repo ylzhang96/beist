@@ -26,4 +26,6 @@ public interface ArticleService {
     UserArticle findByUserAndArticle(User user, Article article);
 
     UserArticle save(UserArticle userArticle);
+
+    void updateStateByUserAndArticle(String state, Long userId, Long articleId);
 }

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Col, Grid, Jumbotron, Modal, Pagination, Row} from "react-bootstrap";
+import {Button, Col, Grid, Jumbotron, Modal,  Row} from "react-bootstrap";
 
 class ArticleBody extends Component {
 
@@ -119,11 +119,13 @@ class ArticleBody extends Component {
             return response.json()
         }).then((json) => {
             console.log('parsed json', json);
-            if (json.status === 0) {
+            if (json.status >= 0) {
                 this.setState({
                     UserArticleIdList: json.result.articleIdList,
                     UserArticleTitleList: json.result.articleTitleList
                 });
+                // console.log(this.state.UserArticleIdList);
+                // console.log(json.status);
                 if (json.status > 0) {
                     let length = this.state.UserArticleIdList.length;
                     for (let i = 0; i < length; i++) {
@@ -131,6 +133,7 @@ class ArticleBody extends Component {
                             newestArticleList: this.state.newestArticleList.concat(this.state.UserArticleTitleList[i])
                         })
                     }
+                    console.log("hhhh"+this.state.newestArticleList);
                 }
             } else {
                 // let errorMessage = json.result.errorMessage;
@@ -158,7 +161,8 @@ class ArticleBody extends Component {
 
     showArticleDetailModal() {
         this.setState({
-            showArticleDetailModal: true
+            showArticleDetailModal: true,
+            showWordDetailModal:false
         });
     }
 
@@ -192,8 +196,41 @@ class ArticleBody extends Component {
         }
     }
 
-    updateArticleState(state) {
+    endReading() {
+        this.updateArticleState(1);
+        this.closeArticleDetailModal();
+    }
 
+    updateArticleState(state) {
+        let articleId = 0;
+        if (this.state.chosenNumber >= 0 && this.state.chosenNumber <= 5) {
+            articleId = this.state.RecoArticleIdList[this.state.chosenNumber];
+        } else {
+            articleId = this.state.UserArticleIdList[this.state.chosenNumber - 6];
+        }
+        fetch("/api/article/updateArticleState", {
+            method: "POST",
+            headers: {
+                'Cache-Control': 'no-cache',
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'userTele': localStorage.getItem("userTele"),
+                'token': localStorage.getItem("token"),
+                'state': state,
+                'articleId': articleId
+            }
+        }).then(function (response) {
+            return response.json()
+        }).then((json) => {
+            console.log('parsed json', json)
+            if (json.status === 0) {
+
+            }
+            else {
+
+            }
+        }).catch(function (ex) {
+            console.log('parsing failed', ex)
+        })
     }
 
     getWordByWordId(number) {
@@ -239,11 +276,11 @@ class ArticleBody extends Component {
         this.setState({
             chosenNumber:num
         })
-        let wordId = 0;
+        let articleId = 0;
         if (num >= 0 && num <= 5) {
-            wordId = this.state.RecoArticleIdList[num];
+            articleId = this.state.RecoArticleIdList[num];
         } else {
-            wordId = this.state.UserArticleIdList[num - 6];
+            articleId = this.state.UserArticleIdList[num - 6];
         }
         // 用户文章表没有或者用户单词表为熟悉单词，则返回单词列表
         // 用户文章表显示准备阅读或者用户单词表显示已阅读，则返回文章列表
@@ -254,7 +291,7 @@ class ArticleBody extends Component {
                 'Content-Type': 'application/json',
                 'token': localStorage.getItem("token"),
                 'userTele': localStorage.getItem("userTele"),
-                'articleId': wordId,
+                'articleId': articleId,
             }
         }).then(function (response) {
             return response.json()
@@ -267,6 +304,7 @@ class ArticleBody extends Component {
                         wordNum: 1
                     });
                 }
+                this.showWordDetailModal();
 
             } else if (json.status === 0) {
                 let articleTotal = '';
@@ -421,7 +459,7 @@ class ArticleBody extends Component {
                         </div>
                     </Modal.Body>
                     <Modal.Footer className="padLef30Class padRig30Class">
-                        <Button bsStyle="info" onClick={this.closeArticleDetailModal.bind(this)} block>完成阅读</Button>
+                        <Button bsStyle="info" onClick={this.endReading.bind(this)} block>完成阅读</Button>
                     </Modal.Footer>
                 </Modal>
 

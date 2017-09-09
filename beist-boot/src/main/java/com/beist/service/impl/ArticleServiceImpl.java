@@ -6,6 +6,7 @@ import com.beist.entity.Article;
 import com.beist.entity.User;
 import com.beist.entity.UserArticle;
 import com.beist.service.ArticleService;
+import lombok.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -62,6 +63,12 @@ public class ArticleServiceImpl implements ArticleService{
     @Override
     public UserArticle save(UserArticle userArticle) {
         return userarticleRepository.save(userArticle);
+    }
+
+    @Override
+    @Transactional
+    public void updateStateByUserAndArticle(String state, Long userId, Long articleId) {
+        userarticleRepository.updateStateByUserAndArticle(state, userId, articleId);
     }
 
 }

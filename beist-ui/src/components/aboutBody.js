@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {
-    Tab, Col, Nav,
-    NavItem, Row, Tabs
+    Tab,Tabs
 } from "react-bootstrap";
 
 class AboutBody extends Component {

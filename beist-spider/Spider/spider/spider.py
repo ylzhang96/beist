@@ -106,7 +106,7 @@ for i in range(0,len(link_ar)-1):
 
         x2 = x2 + 1
 
-        fout = open(str_txt, 'w')      # 将每篇文章的内容写到对应的TXT文件中
+        fout = open(str_txt, 'w',encoding="utf-8")      # 将每篇文章的内容写到对应的TXT文件中
         fout.write(str_de)
         fout.close()
 
@@ -114,7 +114,7 @@ for i in range(0,len(link_ar)-1):
               + str(new_data['count']) + ' | ' + new_data['type'] + ' | /' +
               new_data['path'])
 
-fout = open('result.txt', 'w')     # 将所有文章信息写到'result.txt'文件中
+fout = open('result.txt', 'w',encoding="utf-8")     # 将所有文章信息写到'result.txt'文件中
 fout.write(str_res)                  # 格式为‘Job search site apologizes | 2017-08-12 00:00:00 | 163 | 职场 | 6.txt’
 fout.close()
 

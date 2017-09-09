@@ -130,6 +130,24 @@ public class ArticleController {
         return JSONResult.fillResultString(articleIdList.size(), JSONResult.MESSAGE_OK, result);
     }
 
+    @RequestMapping("/updateArticleState")
+    public String updateArticleState(@RequestHeader("token") String token, @RequestHeader("userTele") String userTele,
+                                     @RequestHeader("state") String state, @RequestHeader("articleId") String articleId) {
+        Map<String, String> result = new HashMap<>();
+        JSONObject jsonObject = new JSONObject(userController.jwtCheck(token, userTele));
+        if (jsonObject.getInt("status") == 1) {
+            return JSONResult.fillResultString(-1, "您没有权限，请登录", result);
+        }
+        Long articleLong = Long.parseLong(articleId);
+        User user = userService.findByUserTele(userTele);
+        if(state.equals("0")) {
+            articleService.updateStateByUserAndArticle("准备阅读", user.getUserId(), articleLong);
+        } else {
+            articleService.updateStateByUserAndArticle("已阅读", user.getUserId(), articleLong);
+        }
+        return JSONResult.fillResultString(JSONResult.STATUS_OK, JSONResult.MESSAGE_OK, result);
+    }
+
     // 用户文章表没有或者用户单词表为熟悉单词，则返回单词列表
     // 用户文章表显示准备阅读或者用户单词表显示已阅读，则返回文章列表
     @RequestMapping("/getArticleListOrWordList")
