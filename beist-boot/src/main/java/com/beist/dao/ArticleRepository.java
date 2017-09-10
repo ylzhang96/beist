@@ -18,7 +18,7 @@ public interface ArticleRepository extends CrudRepository<Article, Long> {
     void updateArticleLevelByArticleId(@Param("articleLevel") String articleLevel, @Param("articleId") Long articleId);
 
     //返回相应水平的文章
-    @Query(value = "select * from A where article_level = :articleLevel",nativeQuery = true)
+    @Query(value = "select * from A where article_level = :articleLevel order by newid()",nativeQuery = true)
     List<Article> findArticleListByArticleLevel(@Param("articleLevel") String articleLevel);
 
     Article findArticleByArticleId(Long articleId);
